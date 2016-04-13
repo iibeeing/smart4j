@@ -11,6 +11,9 @@ import com.util.PropsUtil;*/
 import com.smart4j.cc.helper.DatabaseHelper;
 import com.smart4j.cc.model.Customer;
 import com.smart4j.framework.annotation.Service;
+import com.smart4j.framework.annotation.Transaction;
+import com.smart4j.framework.bean.FileParam;
+import com.smart4j.framework.helper.UploadHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +96,16 @@ public class CustomerService {
 		return DatabaseHelper.insertEntity(Customer.class, fieldMap);
 	}
 
+	@Transaction
+	public boolean createCustomer(Map<String,Object>fieldMap,FileParam fileParam){
+		boolean result = DatabaseHelper.insertEntity(Customer.class, fieldMap);
+		if(result){
+			UploadHelper.uploadFile("/tm/upload/",fileParam);
+		}
+		return result;
+	}
+	
+	
 	public boolean updateCustomer(long id, Map<String, Object> fieldMap) {
 		return DatabaseHelper.updateEntity(Customer.class, id, fieldMap);
 	}

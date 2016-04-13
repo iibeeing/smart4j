@@ -9,13 +9,14 @@ import com.smart4j.framework.annotation.Action;
 import com.smart4j.framework.annotation.Controller;
 import com.smart4j.framework.annotation.Inject;
 import com.smart4j.framework.bean.Data;
+import com.smart4j.framework.bean.FileParam;
 import com.smart4j.framework.bean.Param;
 import com.smart4j.framework.bean.View;
 
 @Controller
 public class CustomerController {
 
-	@Inject
+/*	@Inject
 	private CustomerService customerService;
 
 	@Action("GET:/customer")
@@ -43,13 +44,13 @@ public class CustomerController {
 		return new Data(result);
 	}
 
-/*	@Action("POST:/customer_edit")
+	@Action("POST:/customer_edit")
 	public Data edit(Param param) {
 		long id = param.getLong("id");
 		Map<String, Object> fieldMap = param.getMap();
 		boolean result = customerService.updateCustomer(id, fieldMap);
 		return new Data(result);
-	}*/
+	}
 
 	@Action("GET:/customer_edit")
 	public View edit(Param param) {
@@ -59,6 +60,70 @@ public class CustomerController {
 	}
 	
 	@Action("delete:/customer_edit")
+	public Data delete(Param param) {
+		long id = param.getLong("id");
+		boolean result = customerService.deleteCustomer(id);
+		return new Data(result);
+	}*/
+	@Inject
+	private CustomerService customerService;
+
+/*	@Action("GET:/customer")
+	public View index(Param param) {
+		List<Customer> customerList = customerService.getCustomerList();
+		return new View("customer.jsp").addModel("customerList", customerList);
+	}*/
+
+	@Action("GET:/customer")
+	public View index() {
+		List<Customer> customerList = customerService.getCustomerList();
+		return new View("customer.jsp").addModel("customerList", customerList);
+	}
+	
+	@Action("GET:/customer_show")
+	public View show(Param param) {
+		long id = param.getLong("id");
+		Customer customer = customerService.getCustomer(id);
+		return new View("customer_show.jsp").addModel("customer", customer);
+	}
+
+	@Action("GET:/customer_create")
+	public View create(Param param) {
+		Customer customer = new Customer();
+		return new View("customer_create.jsp").addModel("customer", customer);
+	}
+
+	@Action("GET:/customer_create")
+	public View create() {
+		Customer customer = new Customer();
+		return new View("customer_create.jsp").addModel("customer", customer);
+	}
+	
+	@Action("POST:/customer_create")
+	public Data createSubmit(Param param) {
+		Map<String, Object> fieldMap = param.getFieldMap();
+		FileParam fileParam = param.getFile("customer.photo");
+		//boolean result = customerService.createCustomer(fieldMap);
+		boolean result = customerService.createCustomer(fieldMap,fileParam);
+		return new Data(result);
+	}
+
+	@Action("POST:/customer_edit")
+	public Data edit(Param param) {
+		Map<String, Object> fieldMap = param.getFieldMap();
+		long id = param.getLong("id");
+		boolean result = customerService.updateCustomer(id, fieldMap);
+		return new Data(result);
+	}
+	
+	@Action("GET:/customer_edit")
+	public View toEdit(Param param) {
+		long id = param.getLong("id");
+		Customer customer = customerService.getCustomer(id);
+		return new View("customer_show.jsp").addModel("customer", customer);
+	}
+	
+	@Action("GET:/customer_delete")
 	public Data delete(Param param) {
 		long id = param.getLong("id");
 		boolean result = customerService.deleteCustomer(id);
