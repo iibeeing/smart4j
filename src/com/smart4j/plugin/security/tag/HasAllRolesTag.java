@@ -7,10 +7,11 @@ import org.apache.shiro.web.tags.RoleTag;
 
 /**
 @ClassName: HasAllRolesTag
-@Description: ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÓµÓĞÆäÖĞËùÓĞµÄ½ÇÉ«£¨¶ººÅ·Ö¸î£¬±íÊ¾¡°Óë¡±µÄ¹ØÏµ£©
+@Description: åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰å…¶ä¸­æ‰€æœ‰çš„è§’è‰²ï¼ˆé€—å·åˆ†å‰²ï¼Œè¡¨ç¤ºâ€œä¸â€çš„å…³ç³»ï¼‰
 @author BEE 
-@date 2016-4-12 ÉÏÎç10:45:36
+@date 2016-4-12 ä¸Šåˆ10:45:36
  */
+@SuppressWarnings("serial")
 public class HasAllRolesTag extends RoleTag {
 
 	private static final String ROLE_NAMES_DELIMITER = ",";
