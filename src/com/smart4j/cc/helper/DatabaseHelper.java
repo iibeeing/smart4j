@@ -226,4 +226,69 @@ public final class DatabaseHelper {
 	public static String getTableName(Class<?> entityClass){
 		return entityClass.getSimpleName();
 	}
+	
+	/**
+	@Description: 开启事务
+	@param     设定文件
+	@date 创建时间：2016-4-6 上午11:48:32 
+	@version 1.0
+	@return void    返回类型
+	 */
+	public static void beginTransaction(){
+		Connection conn = getConnection();
+		if(conn != null){
+			try{
+				conn.setAutoCommit(false);
+			}catch (Exception e) {
+				LOGGER.error("begin transaction failure",e);
+				throw new RuntimeException(e);
+			}finally{
+				CONNCETION_HOLDER.set(conn);
+			}
+		}
+	}
+	
+	/**
+	@Description: 提交事务
+	@param     设定文件
+	@date 创建时间：2016-4-6 上午11:48:46 
+	@version 1.0
+	@return void    返回类型
+	 */
+	public static void commitTransaction(){
+		Connection conn = getConnection();
+		if(conn != null){
+			try{
+				conn.commit();
+				conn.close();
+			}catch (Exception e) {
+				LOGGER.error("commit transaction failure",e);
+				throw new RuntimeException(e);
+			}finally{
+				CONNCETION_HOLDER.remove();
+			}
+		}
+	}
+	
+	/**
+	@Description: 回滚事务
+	@param     设定文件
+	@date 创建时间：2016-4-6 上午11:48:54 
+	@version 1.0
+	@return void    返回类型
+	 */
+	public static void rollbackTransaction(){
+		Connection conn = getConnection();
+		if(conn != null){
+			try{
+				conn.rollback();
+				conn.close();
+			}catch (Exception e) {
+				LOGGER.error("rollback transaction failure",e);
+				throw new RuntimeException(e);
+			}finally{
+				CONNCETION_HOLDER.remove();
+			}
+		}
+	}
 }

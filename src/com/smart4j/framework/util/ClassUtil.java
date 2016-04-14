@@ -52,7 +52,7 @@ public final class ClassUtil {
 	public static Class<?> loadClass(String className){
 		Class<?> cls;
 		try{
-			System.out.println(" 正在加载 --- >" + className);
+			//System.out.println(" 正在加载 --- >" + className);
 			//cls = Class.forName(className,false,getClassLoader());
 			cls = Class.forName(className,true,getClassLoader());
 		}catch (Exception e) {
