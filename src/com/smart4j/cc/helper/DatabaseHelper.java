@@ -6,12 +6,18 @@ import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
+
+import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 //import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
@@ -20,6 +26,8 @@ import org.slf4j.LoggerFactory;
 
 import com.smart4j.cc.util.CollectionUtil;
 import com.smart4j.cc.util.PropsUtil;
+import com.smart4j.framework.InstanceFactory;
+import com.smart4j.framework.ds.DataSourceFactory;
 
 public final class DatabaseHelper {
 
@@ -34,6 +42,10 @@ public final class DatabaseHelper {
 	//private static final ThreadLocal<Connection> CONNCETION_HOLDER = new ThreadLocal<Connection>();
 	private static final ThreadLocal<Connection> CONNCETION_HOLDER;
 	private static final BasicDataSource DATA_SOURCE;
+    /**
+     * 获取数据源工厂
+     */
+    private static final DataSourceFactory dataSourceFactory = InstanceFactory.getDataSourceFactory();
 	static {
 		CONNCETION_HOLDER = new ThreadLocal<Connection>();
 		QUERY_RUNNER = new QueryRunner();
@@ -291,4 +303,45 @@ public final class DatabaseHelper {
 			}
 		}
 	}
+	
+	public static Set<String> querySet(String sql,Object param) {
+		List<String> entityList;
+		Set<String> entitySet;
+		try {
+			Connection conn = getConnection();
+			entityList = QUERY_RUNNER.query(conn, sql, new BeanListHandler<String>(null), param);
+			entitySet = new HashSet(Arrays.asList(entityList.toArray()));
+		} catch (SQLException e) {
+			LOGGER.error("query entity list failure", e);
+			throw new RuntimeException(e);
+		}
+		/*finally {
+			closeConnection();
+		}*/
+		return entitySet;
+	}
+	
+	
+	public static String query(String sql,Object param){
+		String result = "";
+		try{
+			Connection conn = getConnection();
+			//entity = (T) QUERY_RUNNER.query(conn, sql,new BeanHandler<String>(entityClass),param);
+			Object[] array = QUERY_RUNNER.query(conn, sql, new ArrayHandler(),param);
+			if(array != null && array.length == 1){
+				result = (String)array[0];
+			}
+		}catch (SQLException e) {
+			LOGGER.error("query entity failure",e);
+			throw new RuntimeException(e);
+		}
+		return result;
+	}
+	
+    /**
+     * 获取数据源
+     */
+    public static DataSource getDataSource() {
+        return dataSourceFactory.getDataSource();
+    }
 }

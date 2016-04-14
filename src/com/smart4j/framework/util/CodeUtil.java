@@ -2,7 +2,7 @@ package com.smart4j.framework.util;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,5 +35,9 @@ public final class CodeUtil {
 			throw new RuntimeException(e);
 		}
 		return target;
+	}
+	
+	public static String md5(String source){
+		return DigestUtils.md5Hex(source);
 	}
 }

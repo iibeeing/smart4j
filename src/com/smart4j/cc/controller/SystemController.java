@@ -9,6 +9,8 @@ import com.smart4j.framework.bean.Param;
 import com.smart4j.framework.bean.View;
 /*import com.smart4j.plugin.security.SecurityHelper;
 import com.smart4j.plugin.security.exception.AuthcException;*/
+import com.smart4j.plugin.security.SecurityHelper;
+import com.smart4j.plugin.security.exception.AuthcException;
 
 /**
 @ClassName: SystemController
@@ -55,12 +57,12 @@ public class SystemController {
 	public View loginSubmit(Param param){
 		String username = param.getString("username");
 		String password = param.getString("password");
-/*		try{
+		try{
 			SecurityHelper.login(username, password);
 		}catch (AuthcException e) {
 			LOGGER.error("login failure",e);
 			return new View("/login");
-		}*/
+		}
 		return new View("/customer");
 	}
 	
@@ -73,7 +75,7 @@ public class SystemController {
 	 */
 	@Action("GET:/logout")
 	public View logout(){
-		//SecurityHelper.logout();
+		SecurityHelper.logout();
 		return new View("/");
 	}
 }
