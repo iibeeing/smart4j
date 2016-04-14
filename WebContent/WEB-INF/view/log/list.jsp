@@ -5,30 +5,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>客户管理</title>
+<title>日志查看</title>
 </head>
 <body>
-	<h1>客户列表</h1>
-	<a href="${BASE }/customer_create">新增</a>
+	<h1>日志列表</h1>
 	<table border="1px" width="100%" style="text-align: center;">
 		<tr>
 			<th>序号</th>
-			<th>客户名称</th>
-			<th>联系人</th>
-			<th>电话号码</th>
-			<th>邮箱地址</th>
-			<th>操作</th>
+			<th>语句</th>
+			<th>执行结果</th>
+			<th>操作人</th>
+			<th>操作时间</th>
 		</tr>
-		<c:forEach var="customer" items="${customerList}" varStatus="status">
+		<c:forEach var="log" items="${list}" varStatus="status">
 			<tr align="center">
 				<td>${status.index + 1}</td>  
-				<td>${customer.name }</td>
-				<td>${customer.contact }</td>
-				<td>${customer.telephone }</td>
-				<td>${customer.email }</td>
-				<td><a href="${BASE }/customer_edit?id=${customer.id }">编辑</a>
-					    <a href="${BASE }/customer_delete?id=${customer.id }">删除</a>
-				</td>
+				<td>${log.statement }</td>
+				<c:if test="${log.result == true}">
+				<td>成功</td>
+				</c:if>
+				<c:if test="${log.result == false}">
+				<td>失败</td>
+				</c:if>
+				<td>${log.operator }</td>
+				<td>${log.operatetime }</td>
 			</tr>
 		</c:forEach>
 	</table>
