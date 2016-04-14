@@ -41,7 +41,8 @@ public class Param {
 	 * 根据参数名获取long 型参数值
 	 */
 	public Long getLong(String name){
-		return CastUtil.castLong(paramMap.get(name));
+		//return CastUtil.castLong(paramMap.get(name));
+		return CastUtil.castLong(getFieldMap().get(name));
 	}
 	
 	/**
