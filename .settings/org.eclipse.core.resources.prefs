@@ -62,6 +62,7 @@ encoding//src/com/smart4j/framework/util/JsonUtil.java=UTF-8
 encoding//src/com/smart4j/framework/util/ObjectUtil.java=UTF-8
 encoding//src/com/smart4j/framework/util/ReflectionUtil.java=UTF-8
 encoding//src/com/smart4j/framework/util/StreamUtil.java=UTF-8
+encoding//src/com/smart4j/plugin/security=UTF-8
 encoding//src/com/smart4j/plugin/security/AppSecurity.java=UTF-8
 encoding//src/com/smart4j/plugin/security/SecurityConfig.java=UTF-8
 encoding//src/com/smart4j/plugin/security/SecurityConstant.java=UTF-8
