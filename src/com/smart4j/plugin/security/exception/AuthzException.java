@@ -6,6 +6,7 @@ package com.smart4j.plugin.security.exception;
 @author BEE 
 @date 2016-4-7 обнГ4:39:51
  */
+@SuppressWarnings("serial")
 public class AuthzException extends Exception {
 	public AuthzException(){
 		super();

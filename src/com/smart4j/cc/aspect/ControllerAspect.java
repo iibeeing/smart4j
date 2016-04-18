@@ -24,9 +24,9 @@ public class ControllerAspect extends AspectProxy {
 			throws Throwable {
 		LOGGER.info("ControllerAspect------------------------------------- begin -------------------------------------");
 		//LOGGER.info(String.format("class: %s", cls.getName()));
-		LOGGER.info(String.format("类名: %s", cls.getName()));
+		LOGGER.info(String.format("绫诲悕: %s", cls.getName()));
 		//LOGGER.info(String.format("method: %s",method.getName()));
-		LOGGER.info(String.format("调用方法: %s",method.getName()));
+		LOGGER.info(String.format("璋冪敤鏂规硶: %s",method.getName()));
 		begin = System.currentTimeMillis();
 	}
 
@@ -34,9 +34,7 @@ public class ControllerAspect extends AspectProxy {
 	public void after(Class<?> cls, Method method, Object[] params,
 			Object result) throws Throwable {
 		//LOGGER.info(String.format("time: %dms", System.currentTimeMillis() - begin));
-		LOGGER.info(String.format("耗时: %dms", System.currentTimeMillis() - begin));
+		LOGGER.info(String.format("鑰楁椂: %dms", System.currentTimeMillis() - begin));
 		LOGGER.info("ControllerAspect------------------------------------- end -------------------------------------");
 	}
-	
-	
 }

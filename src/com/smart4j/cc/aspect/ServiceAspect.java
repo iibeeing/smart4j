@@ -8,13 +8,13 @@ public class ServiceAspect extends AspectProxy {
 
 	@Override
 	public void begin() {
-		System.out.println("ServiceAspectÇĞÃæ ************ Service±»µ÷ÓÃ");
+		System.out.println("ServiceAspectåˆ‡é¢ ************ Serviceè¢«è°ƒç”¨");
 	}
 	
 	@Override
 	public Object doProxy(ProxyChain proxyChain) throws Throwable {
 		Object obj = super.doProxy(proxyChain);
-		System.out.println("ServiceAspectÇĞÃæ·µ»ØÖµ ************ " + obj);
+		System.out.println("ServiceAspectåˆ‡é¢è¿”å›å€¼ ************ " + obj);
 		return obj;
 	}
 }

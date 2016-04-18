@@ -14,20 +14,20 @@ import com.smart4j.plugin.security.exception.AuthcException;
 
 /**
 @ClassName: SystemController
-@Description: ´¦ÀíÏµÍ³ÇëÇó
+@Description: å¤„ç†ç³»ç»Ÿè¯·æ±‚
 @author BEE 
-@date 2016-4-7 ÏÂÎç4:40:34
+@date 2016-4-7 ä¸‹åˆ4:40:34
  */
 @Controller
 public class SystemController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SystemController.class);
 	
 	/**
-	@Description: ½øÈëÊ×Ò³½çÃæ
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç4:41:58 
+	@Description: è¿›å…¥é¦–é¡µç•Œé¢
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ4:41:58 
 	@version 1.0
-	@return View    ·µ»ØÀàĞÍ
+	@return View    è¿”å›ç±»å‹
 	 */
 	@Action("GET:/")
 	public View index(){
@@ -35,11 +35,11 @@ public class SystemController {
 	}
 	
 	/**
-	@Description: ½øÈëµÇÂ¼½çÃæ
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç4:42:28 
+	@Description: è¿›å…¥ç™»å½•ç•Œé¢
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ4:42:28 
 	@version 1.0
-	@return View    ·µ»ØÀàĞÍ
+	@return View    è¿”å›ç±»å‹
 	 */
 	@Action("GET:/login")
 	public View login(){
@@ -47,11 +47,11 @@ public class SystemController {
 	}
 	
 	/**
-	@Description: Ìá½»µÇÂ¼±íµ¥
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç4:43:10 
+	@Description: æäº¤ç™»å½•è¡¨å•
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ4:43:10 
 	@version 1.0
-	@return View    ·µ»ØÀàĞÍ
+	@return View    è¿”å›ç±»å‹
 	 */
 	@Action("POST:/login")
 	public View loginSubmit(Param param){
@@ -67,11 +67,11 @@ public class SystemController {
 	}
 	
 	/**
-	@Description: Ìá½»×¢ÏúÇëÇó
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç4:46:25 
+	@Description: æäº¤æ³¨é”€è¯·æ±‚
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ4:46:25 
 	@version 1.0
-	@return View    ·µ»ØÀàĞÍ
+	@return View    è¿”å›ç±»å‹
 	 */
 	@Action("GET:/logout")
 	public View logout(){

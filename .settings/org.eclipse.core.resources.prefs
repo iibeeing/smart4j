@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/com/smart4j/cc/aspect=UTF-8
+encoding//src/com/smart4j/cc/aspect/ControllerAspect.java=UTF-8
+encoding//src/com/smart4j/cc/aspect/ServiceAspect.java=UTF-8
+encoding//src/com/smart4j/cc/controller=UTF-8
+encoding//src/com/smart4j/cc/controller/SystemController.java=UTF-8
+encoding//src/com/smart4j/plugin/security/realm=UTF-8
+encoding//src/com/smart4j/plugin/security/tag=UTF-8
