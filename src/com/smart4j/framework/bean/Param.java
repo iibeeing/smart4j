@@ -17,14 +17,14 @@ public class Param {
 	}
 	
 	*//**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡long ĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–long å‹å‚æ•°å€¼
 	 *//*
 	public Long getLong(String name){
 		return CastUtil.castLong(paramMap.get(name));
 	}
 	
 	*//**
-	 * »ñÈ¡ËùÓĞ×Ö¶ÎĞÅÏ¢
+	 * è·å–æ‰€æœ‰å­—æ®µä¿¡æ¯
 	 *//*
 	public Map<String,Object> getMap(){
 		return paramMap;
@@ -38,7 +38,7 @@ public class Param {
 		this.paramMap = paramMap;
 	}
 	/**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡long ĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–long å‹å‚æ•°å€¼
 	 */
 	public Long getLong(String name){
 		//return CastUtil.castLong(paramMap.get(name));
@@ -46,7 +46,7 @@ public class Param {
 	}
 	
 	/**
-	 * »ñÈ¡ËùÓĞ×Ö¶ÎĞÅÏ¢
+	 * è·å–æ‰€æœ‰å­—æ®µä¿¡æ¯
 	 */
 	public Map<String,Object> getMap(){
 		return paramMap;
@@ -63,11 +63,11 @@ public class Param {
 	}
 
 	/**
-	@Description: »ñÈ¡ÇëÇó²ÎÊıÓ³Éä
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç10:15:03 
+	@Description: è·å–è¯·æ±‚å‚æ•°æ˜ å°„
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ10:15:03 
 	@version 1.0
-	@return Map<String,Object>    ·µ»ØÀàĞÍ
+	@return Map<String,Object>    è¿”å›ç±»å‹
 	 */
 	public Map<String, Object> getFieldMap() {
 		Map<String, Object> fieldMap = new HashMap<String, Object>();
@@ -85,7 +85,7 @@ public class Param {
 	}
 
 	/**
-	 * »ñÈ¡ÉÏ´«ÎÄ¼şÓ³Éä
+	 * è·å–ä¸Šä¼ æ–‡ä»¶æ˜ å°„
 	 */
 	public Map<String, List<FileParam>> getFileMap() {
 		Map<String, List<FileParam>> fileMap = new HashMap<String, List<FileParam>>();
@@ -106,14 +106,14 @@ public class Param {
 	}
 
 	/**
-	 * »ñÈ¡ËùÓĞÉÏ´«ÎÄ¼ş
+	 * è·å–æ‰€æœ‰ä¸Šä¼ æ–‡ä»¶
 	 */
 	public List<FileParam> getFileList(String fieldName) {
 		return getFileMap().get(fieldName);
 	}
 
 	/**
-	 * »ñÈ¡Î¨Ò»ÉÏ´«ÎÄ¼ş
+	 * è·å–å”¯ä¸€ä¸Šä¼ æ–‡ä»¶
 	 */
 	public FileParam getFile(String fieldName) {
 		List<FileParam> fileParamList = getFileList(fieldName);
@@ -125,7 +125,7 @@ public class Param {
 	}
 
 	/**
-	 * ÑéÖ¤²ÎÊıÊÇ·ñÎª¿Õ
+	 * éªŒè¯å‚æ•°æ˜¯å¦ä¸ºç©º
 	 */
 
 	public boolean isEmpty() {
@@ -133,35 +133,35 @@ public class Param {
 	}
 
 	/**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡StringĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–Stringå‹å‚æ•°å€¼
 	 */
 	public String getString(String name){
 		return CastUtil.castString(getFieldMap().get(name));
 	}
 	
 	/**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡DoubleĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–Doubleå‹å‚æ•°å€¼
 	 */
 	public double getDouble(String name){
 		return CastUtil.castDouble(getFieldMap().get(name));
 	}
 	
 	/**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡LongĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–Longå‹å‚æ•°å€¼
 	 */
 	public long getLong2(String name){
 		return CastUtil.castLong(getFieldMap().get(name));
 	}
 	
 	/**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡intĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–intå‹å‚æ•°å€¼
 	 */
 	public int getInt(String name){
 		return CastUtil.castInt(getFieldMap().get(name));
 	}
 	
 	/**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡booleanĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–booleanå‹å‚æ•°å€¼
 	 */
 	public boolean getBoolean(String name){
 		return CastUtil.castBoolean(getFieldMap().get(name));
@@ -170,18 +170,18 @@ public class Param {
 	 * private Map<String,Object> paramMap; public Param(Map<String, Object>
 	 * paramMap) { this.paramMap = paramMap; }
 	 *//**
-	 * ¸ù¾İ²ÎÊıÃû»ñÈ¡long ĞÍ²ÎÊıÖµ
+	 * æ ¹æ®å‚æ•°åè·å–long å‹å‚æ•°å€¼
 	 */
 	/*
 	 * public Long getLong(String name){ return
 	 * CastUtil.castLong(paramMap.get(name)); }
 	 *//**
-	 * »ñÈ¡ËùÓĞ×Ö¶ÎĞÅÏ¢
+	 * è·å–æ‰€æœ‰å­—æ®µä¿¡æ¯
 	 */
 	/*
 	 * public Map<String,Object> getMap(){ return paramMap; }
 	 *//**
-	 * ÑéÖ¤²ÎÊıÊÇ·ñÎª¿Õ
+	 * éªŒè¯å‚æ•°æ˜¯å¦ä¸ºç©º
 	 */
 	/*
 	 * public boolean isEmpty(){ return CollectionUtil.isEmpty(paramMap); }

@@ -10,9 +10,9 @@ import java.util.Properties;
 
 /**
 * @ClassName: PropsUtil
-* @Description: ÊôĞÔÎÄ¼ş¹¤¾ßÀà
+* @Description: å±æ€§æ–‡ä»¶å·¥å…·ç±»
 * @author BEE 
-* @date 2016-3-25 ÉÏÎç10:02:18
+* @date 2016-3-25 ä¸Šåˆ10:02:18
  */
 public final class PropsUtil {
 	private static final Logger LOGGER = LoggerFactory
@@ -20,10 +20,10 @@ public final class PropsUtil {
 	
 	/**
 	* @Title: LoadProps
-	* @Description: ¼ÓÔØÊôĞÔÎÄ¼ş
+	* @Description: åŠ è½½å±æ€§æ–‡ä»¶
 	* @param @param fileName
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return Properties    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return Properties    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static Properties LoadProps(String fileName){
@@ -52,11 +52,11 @@ public final class PropsUtil {
 	
 	/**
 	* @Title: getString
-	* @Description: »ñÈ¡×Ö·ûÊôĞÔ£¨Ä¬ÈÏÖµÎª¿Õ×Ö·û´®£©
+	* @Description: è·å–å­—ç¬¦å±æ€§ï¼ˆé»˜è®¤å€¼ä¸ºç©ºå­—ç¬¦ä¸²ï¼‰
 	* @param @param props
 	* @param @param key
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return String    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return String    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static String getString(Properties props,String key){
@@ -65,12 +65,12 @@ public final class PropsUtil {
 	
 	/**
 	* @Title: getString
-	* @Description: »ñÈ¡×Ö·ûĞÍÊôĞÔ£¨¿ÉÖ¸¶¨Ä¬ÈÏÖµ£©
+	* @Description: è·å–å­—ç¬¦å‹å±æ€§ï¼ˆå¯æŒ‡å®šé»˜è®¤å€¼ï¼‰
 	* @param @param props
 	* @param @param key
 	* @param @param defaultValue
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return String    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return String    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static String getString(Properties props,String key,String defaultValue){

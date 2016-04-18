@@ -5,12 +5,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Request {
 	/**
-	 * 请求方法
+	 * 璇锋眰鏂规硶
 	 */
 	private String requestMethod;
 	
 	/**
-	 * 请求路径
+	 * 璇锋眰璺緞
 	 */
 	private String requestPath;
 	

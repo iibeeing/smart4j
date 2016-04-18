@@ -7,9 +7,9 @@ import java.lang.annotation.Target;
 
 /**
 * @ClassName: Inject
-* @Description: ÒÀÀµ×¢Èë×¢½â
+* @Description: ä¾èµ–æ³¨å…¥æ³¨è§£
 * @author BEE 
-* @date 2016-3-28 ÉÏÎç11:08:59
+* @date 2016-3-28 ä¸Šåˆ11:08:59
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

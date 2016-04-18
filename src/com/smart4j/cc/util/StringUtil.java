@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public final class StringUtil {
 	/**
-	 * ×Ö·û´®·Ö¸ô·û
+	 * å­—ç¬¦ä¸²åˆ†éš”ç¬¦
 	 */
 	public static final String SEPARATOR = String.valueOf((char) 29);
 	public static boolean isEmpty(String str){
@@ -19,13 +19,13 @@ public final class StringUtil {
 	}
 
 	/**
-	@Description: ÓÃÖ¸¶¨±êÊ¶·û²ğ·ÖStringÎªStringÊı×é
+	@Description: ç”¨æŒ‡å®šæ ‡è¯†ç¬¦æ‹†åˆ†Stringä¸ºStringæ•°ç»„
 	@param @param body
-	@param @param separator ±êÊ¶·û
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç10:52:34 
+	@param @param separator æ ‡è¯†ç¬¦
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ10:52:34 
 	@version 1.0
-	@return String[]    ·µ»ØÀàĞÍ
+	@return String[]    è¿”å›ç±»å‹
 	 */
 	public static String[] splitString(String body, String separator) {
 		if(StringUtil.isNotEmpty(separator) && StringUtil.isNotEmpty(body)){

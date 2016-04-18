@@ -43,7 +43,7 @@ public final class DatabaseHelper {
 	private static final ThreadLocal<Connection> CONNCETION_HOLDER;
 	private static final BasicDataSource DATA_SOURCE;
     /**
-     * »ñÈ¡Êı¾İÔ´¹¤³§
+     * è·å–æ•°æ®æºå·¥å‚
      */
     private static final DataSourceFactory dataSourceFactory = InstanceFactory.getDataSourceFactory();
 	static {
@@ -157,11 +157,11 @@ public final class DatabaseHelper {
 	
 	/**
 	* @Title: insertEntity
-	* @Description: ²åÈëÊµÌå
+	* @Description: æ’å…¥å®ä½“
 	* @param @param entityClass
 	* @param @param fieldMap
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return boolean    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return boolean    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static <T> boolean insertEntity(Class<T> entityClass,Map<String,Object> fieldMap){
@@ -176,9 +176,9 @@ public final class DatabaseHelper {
 			columns.append(fieldName).append(", ");
 			values.append("?, ");
 		}
-		//columns ½«×îºóÒ»¸ö, »»³É)
+		//columns å°†æœ€åä¸€ä¸ª, æ¢æˆ)
 		columns.replace(columns.lastIndexOf(", "),columns.length(),")");
-		//values ½«×îºóÒ»¸ö, »»³É)
+		//values å°†æœ€åä¸€ä¸ª, æ¢æˆ)
 		values.replace(values.lastIndexOf(", "), values.length(), ")");
 		sql += columns + " values " + values;
 		Object[] params = fieldMap.values().toArray();
@@ -187,12 +187,12 @@ public final class DatabaseHelper {
 	
 	/**
 	* @Title: updateEntity
-	* @Description: ¸üĞÂÊµÌå
+	* @Description: æ›´æ–°å®ä½“
 	* @param @param entityClass
 	* @param @param id
 	* @param @param fieldMap
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return boolean    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return boolean    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static <T> boolean updateEntity(Class<T> entityClass,long id,Map<String,Object> fieldMap){
@@ -215,11 +215,11 @@ public final class DatabaseHelper {
 	
 	/**
 	* @Title: deleteEntity
-	* @Description: É¾³ıÊµÌå
+	* @Description: åˆ é™¤å®ä½“
 	* @param @param entityClass
 	* @param @param id
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return boolean    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return boolean    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static <T> boolean deleteEntity(Class<T> entityClass,long id){
@@ -229,10 +229,10 @@ public final class DatabaseHelper {
 	
 	/**
 	* @Title: getTableName
-	* @Description: »ñÈ¡±íÃû£¨ÊµÌåÀàÃû£¬ÒªÇóÊı¾İ¿â±íÃûºÍÊµÌåÀàÃûÏàÍ¬£©
+	* @Description: è·å–è¡¨åï¼ˆå®ä½“ç±»åï¼Œè¦æ±‚æ•°æ®åº“è¡¨åå’Œå®ä½“ç±»åç›¸åŒï¼‰
 	* @param @param entityClass
-	* @param @return    Éè¶¨ÎÄ¼ş
-	* @return String    ·µ»ØÀàĞÍ
+	* @param @return    è®¾å®šæ–‡ä»¶
+	* @return String    è¿”å›ç±»å‹
 	* @throws
 	 */
 	public static String getTableName(Class<?> entityClass){
@@ -240,11 +240,11 @@ public final class DatabaseHelper {
 	}
 	
 	/**
-	@Description: ¿ªÆôÊÂÎñ
-	@param     Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç11:48:32 
+	@Description: å¼€å¯äº‹åŠ¡
+	@param     è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ11:48:32 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void beginTransaction(){
 		Connection conn = getConnection();
@@ -261,11 +261,11 @@ public final class DatabaseHelper {
 	}
 	
 	/**
-	@Description: Ìá½»ÊÂÎñ
-	@param     Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç11:48:46 
+	@Description: æäº¤äº‹åŠ¡
+	@param     è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ11:48:46 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void commitTransaction(){
 		Connection conn = getConnection();
@@ -283,11 +283,11 @@ public final class DatabaseHelper {
 	}
 	
 	/**
-	@Description: »Ø¹öÊÂÎñ
-	@param     Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç11:48:54 
+	@Description: å›æ»šäº‹åŠ¡
+	@param     è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ11:48:54 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void rollbackTransaction(){
 		Connection conn = getConnection();
@@ -339,7 +339,7 @@ public final class DatabaseHelper {
 	}
 	
     /**
-     * »ñÈ¡Êı¾İÔ´
+     * è·å–æ•°æ®æº
      */
     public static DataSource getDataSource() {
         return dataSourceFactory.getDataSource();

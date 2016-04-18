@@ -2,13 +2,13 @@ package com.smart4j.framework.bean;
 
 /**
 * @ClassName: Data
-* @Description: 返回数据对象
+* @Description: 杩斿洖鏁版嵁瀵硅薄
 * @author BEE 
-* @date 2016-3-28 下午3:42:39
+* @date 2016-3-28 涓嬪崍3:42:39
  */
 public class Data {
 	/**
-	*模型数据
+	*妯″瀷鏁版嵁
 	*/
 	private Object model;
 

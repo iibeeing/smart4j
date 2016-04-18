@@ -4,9 +4,9 @@ import java.io.InputStream;
 
 /**
 @ClassName: FileParam
-@Description: 上传文件参数
+@Description: 涓婁紶鏂囦欢鍙傛暟
 @author BEE 
-@date 2016-4-6 上午10:13:22
+@date 2016-4-6 涓婂崍10:13:22
  */
 public class FileParam {
 

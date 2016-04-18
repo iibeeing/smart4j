@@ -6,48 +6,48 @@ import com.smart4j.cc.util.PropsUtil;
 
 /**
 @ClassName: ConfigHelper
-@Description: »ñÈ¡ÊôĞÔÎÄ¼şÖĞµÄÊôĞÔÖµ
+@Description: è·å–å±æ€§æ–‡ä»¶ä¸­çš„å±æ€§å€¼
 @author BEE 
-@date 2016-4-13 ÏÂÎç2:37:31
+@date 2016-4-13 ä¸‹åˆ2:37:31
  */
 public final class ConfigHelper {
 
 	private static final Properties CONFIG_PROPS = PropsUtil.LoadProps(ConfigConstant.CONFIG_FILE);
 
 	/**
-	 * »ñÈ¡JDBCÇı¶¯
+	 * è·å–JDBCé©±åŠ¨
 	 */
 	public static String getJdbcDriver() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JDBC_DRIVER);
 	}
 
 	/**
-	 * »ñÈ¡JDBC URL
+	 * è·å–JDBC URL
 	 */
 	public static String getJdbcUrl() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JDBC_URL);
 	}
 
 	/**
-	 * »ñÈ¡JDBC ÓÃ»§Ãû
+	 * è·å–JDBC ç”¨æˆ·å
 	 */
 	public static String getJdbcUsername() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JDBC_USERNAME);
 	}
 
 	/**
-	 * »ñÈ¡JDBC ÃÜÂë
+	 * è·å–JDBC å¯†ç 
 	 */
 	public static String getJdbcPassword() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JDBC_PASSWORD);
 	}
 
 	/**
-	 * @Description: »ñÈ¡Ó¦ÓÃ»ù´¡°üÃû
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:12:12
+	 * @Description: è·å–åº”ç”¨åŸºç¡€åŒ…å
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:12:12
 	 * @version 1.0
-	 * @return String ·µ»ØÀàĞÍ
+	 * @return String è¿”å›ç±»å‹
 	 */
 	public static String getAppBasePackage() {
 		return PropsUtil.getString(CONFIG_PROPS,
@@ -55,14 +55,14 @@ public final class ConfigHelper {
 	}
 
 	/**
-	 * »ñÈ¡Ó¦ÓÃJSPÂ·¾¶
+	 * è·å–åº”ç”¨JSPè·¯å¾„
 	 */
 	public static String getAppJspPath() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.APP_JSP_PATH);
 	}
 
 	/**
-	 * »ñÈ¡Ó¦ÓÃ¾²Ì¬×ÊÔ´Â·¾¶
+	 * è·å–åº”ç”¨é™æ€èµ„æºè·¯å¾„
 	 */
 	public static String getAppAssetPath() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.APP_ASSET_PATH,
@@ -70,7 +70,7 @@ public final class ConfigHelper {
 	}
 
 	/**
-	 * »ñÈ¡Ó¦ÓÃÎÄ¼şÉÏ´«ÏŞÖÆ
+	 * è·å–åº”ç”¨æ–‡ä»¶ä¸Šä¼ é™åˆ¶
 	 */
 	public static int getAppUploadLimit() {
 		return PropsUtil.getInt(CONFIG_PROPS, ConfigConstant.APP_UPLOAD_LIMIT,
@@ -78,21 +78,21 @@ public final class ConfigHelper {
 	}
 
 	/**
-	 * »ñÈ¡ String ÀàĞÍµÄÊôĞÔÖµ
+	 * è·å– String ç±»å‹çš„å±æ€§å€¼
 	 */
 	public static String getString(String key) {
 		return PropsUtil.getString(CONFIG_PROPS, key);
 	}
 
 	/**
-	 * »ñÈ¡ boolean ÀàĞÍµÄÊôĞÔÖµ
+	 * è·å– boolean ç±»å‹çš„å±æ€§å€¼
 	 */
 	public static boolean getBoolean(String key) {
 		return PropsUtil.getBoolean(CONFIG_PROPS, key);
 	}
 
 	/**
-	 * »ñÈ¡ int ÀàĞÍµÄÊôĞÔÖµ£¨¿ÉÖ¸¶¨Ä¬ÈÏÖµ£©
+	 * è·å– int ç±»å‹çš„å±æ€§å€¼ï¼ˆå¯æŒ‡å®šé»˜è®¤å€¼ï¼‰
 	 */
 	public static boolean getBoolean(String key, boolean defaultValue) {
 		return PropsUtil.getBoolean(CONFIG_PROPS, key, defaultValue);

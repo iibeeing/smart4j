@@ -2,9 +2,9 @@ package com.smart4j.framework;
 
 /**
 * @ClassName: ConfigConstant
-* @Description: ¿ò¼ÜÅäÖÃĞÅÏ¢
+* @Description: æ¡†æ¶é…ç½®ä¿¡æ¯
 * @author BEE 
-* @date 2016-3-28 ÉÏÎç10:03:58
+* @date 2016-3-28 ä¸Šåˆ10:03:58
  */
 public interface ConfigConstant {
 	

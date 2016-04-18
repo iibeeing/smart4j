@@ -10,7 +10,7 @@ import com.smart4j.framework.util.ObjectUtil;
 
 public class InstanceFactory {
 	   /**
-     * ÓÃÓÚ»º´æ¶ÔÓ¦µÄÊµÀı
+     * ç”¨äºç¼“å­˜å¯¹åº”çš„å®ä¾‹
      */
     private static final Map<String, Object> cache = new ConcurrentHashMap<String, Object>();
 
@@ -50,49 +50,49 @@ public class InstanceFactory {
     private static final String VIEW_RESOLVER = "smart.framework.custom.view_resolver";
 
     /**
-     * »ñÈ¡ ClassScanner
+     * è·å– ClassScanner
      */
 /*    public static ClassScanner getClassScanner() {
         return getInstance(CLASS_SCANNER, DefaultClassScanner.class);
     }*/
 
     /**
-     * »ñÈ¡ DataSourceFactory
+     * è·å– DataSourceFactory
      */
     public static DataSourceFactory getDataSourceFactory() {
         return getInstance(DS_FACTORY, DefaultDataSourceFactory.class);
     }
 
  /*   *//**
-     * »ñÈ¡ DataAccessor
+     * è·å– DataAccessor
      *//*
     public static DataAccessor getDataAccessor() {
         return getInstance(DATA_ACCESSOR, DefaultDataAccessor.class);
     }
 
     *//**
-     * »ñÈ¡ HandlerMapping
+     * è·å– HandlerMapping
      *//*
     public static HandlerMapping getHandlerMapping() {
         return getInstance(HANDLER_MAPPING, DefaultHandlerMapping.class);
     }
 
     *//**
-     * »ñÈ¡ HandlerInvoker
+     * è·å– HandlerInvoker
      *//*
     public static HandlerInvoker getHandlerInvoker() {
         return getInstance(HANDLER_INVOKER, DefaultHandlerInvoker.class);
     }
 
     *//**
-     * »ñÈ¡ HandlerExceptionResolver
+     * è·å– HandlerExceptionResolver
      *//*
     public static HandlerExceptionResolver getHandlerExceptionResolver() {
         return getInstance(HANDLER_EXCEPTION_RESOLVER, DefaultHandlerExceptionResolver.class);
     }
 
     *//**
-     * »ñÈ¡ ViewResolver
+     * è·å– ViewResolver
      *//*
     public static ViewResolver getViewResolver() {
         return getInstance(VIEW_RESOLVER, DefaultViewResolver.class);
@@ -100,23 +100,23 @@ public class InstanceFactory {
 
     @SuppressWarnings("unchecked")
     public static <T> T getInstance(String cacheKey, Class<T> defaultImplClass) {
-        // Èô»º´æÖĞ´æÔÚ¶ÔÓ¦µÄÊµÀı£¬Ôò·µ»Ø¸ÃÊµÀı
+        // è‹¥ç¼“å­˜ä¸­å­˜åœ¨å¯¹åº”çš„å®ä¾‹ï¼Œåˆ™è¿”å›è¯¥å®ä¾‹
         if (cache.containsKey(cacheKey)) {
             return (T) cache.get(cacheKey);
         }
-        // ´ÓÅäÖÃÎÄ¼şÖĞ»ñÈ¡ÏàÓ¦µÄ½Ó¿ÚÊµÏÖÀàÅäÖÃ
+        // ä»é…ç½®æ–‡ä»¶ä¸­è·å–ç›¸åº”çš„æ¥å£å®ç°ç±»é…ç½®
         String implClassName = ConfigHelper.getString(cacheKey);
-        // ÈôÊµÏÖÀàÅäÖÃ²»´æÔÚ£¬ÔòÊ¹ÓÃÄ¬ÈÏÊµÏÖÀà
+        // è‹¥å®ç°ç±»é…ç½®ä¸å­˜åœ¨ï¼Œåˆ™ä½¿ç”¨é»˜è®¤å®ç°ç±»
         if (StringUtil.isEmpty(implClassName)) {
             implClassName = defaultImplClass.getName();
         }
-        // Í¨¹ı·´Éä´´½¨¸ÃÊµÏÖÀà¶ÔÓ¦µÄÊµÀı
+        // é€šè¿‡åå°„åˆ›å»ºè¯¥å®ç°ç±»å¯¹åº”çš„å®ä¾‹
         T instance = ObjectUtil.newInstance(implClassName);
-        // Èô¸ÃÊµÀı²»Îª¿Õ£¬Ôò½«Æä·ÅÈë»º´æ
+        // è‹¥è¯¥å®ä¾‹ä¸ä¸ºç©ºï¼Œåˆ™å°†å…¶æ”¾å…¥ç¼“å­˜
         if (instance != null) {
             cache.put(cacheKey, instance);
         }
-        // ·µ»Ø¸ÃÊµÀı
+        // è¿”å›è¯¥å®ä¾‹
         return instance;
     }
 }

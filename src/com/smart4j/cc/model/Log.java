@@ -2,9 +2,9 @@ package com.smart4j.cc.model;
 
 /**
 * @ClassName: Log
-* @Description: 操作日志
+* @Description: 鎿嶄綔鏃ュ織
 * @author BEE 
-* @date 2016-4-5 上午11:26:58
+* @date 2016-4-5 涓婂崍11:26:58
  */
 public class Log {
 	

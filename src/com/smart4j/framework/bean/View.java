@@ -5,12 +5,12 @@ import java.util.Map;
 
 public class View {
 	/**
-	 * 试图路径
+	 * 璇曞浘璺緞
 	 */
 	private String path;
 	
 	/**
-	 * 模型数据
+	 * 妯″瀷鏁版嵁
 	 */
 	private Map<String,Object> model;
 	

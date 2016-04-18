@@ -5,12 +5,12 @@ import java.lang.reflect.Method;
 public class Handler {
 
 	/**
-	 * Controller¿‡
+	 * ControllerÁ±ª
 	 */
 	private Class<?> controllerClass;
 	
 	/**
-	 * Action ∑Ω∑®
+	 * Action ÊñπÊ≥ï
 	 */
 	private Method actionMethod;
 	

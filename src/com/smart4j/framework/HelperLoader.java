@@ -9,9 +9,9 @@ import com.smart4j.framework.util.ClassUtil;
 
 /**
 * @ClassName: HelperLoader
-* @Description: ¼ÓÔØÏàÓ¦µÄHelperÀà
+* @Description: åŠ è½½ç›¸åº”çš„Helperç±»
 * @author BEE 
-* @date 2016-3-28 ÏÂÎç3:31:56
+* @date 2016-3-28 ä¸‹åˆ3:31:56
  */
 public final class HelperLoader {
 	public static void init(){

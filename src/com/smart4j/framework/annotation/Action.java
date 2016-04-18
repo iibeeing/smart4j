@@ -7,15 +7,15 @@ import java.lang.annotation.Target;
 
 /**
 * @ClassName: Action
-* @Description: ·½·¨×¢½â
+* @Description: æ–¹æ³•æ³¨è§£
 * @author BEE 
-* @date 2016-3-28 ÉÏÎç11:07:52
+* @date 2016-3-28 ä¸Šåˆ11:07:52
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Action {
 	/**
-	 * ÇëÇóÀàĞÍÓëÂ·¾¶
+	 * è¯·æ±‚ç±»å‹ä¸è·¯å¾„
 	 */
 	String value();
 }

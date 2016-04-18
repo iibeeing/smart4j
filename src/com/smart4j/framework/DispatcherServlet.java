@@ -34,9 +34,9 @@ import com.smart4j.framework.util.StreamUtil;
 
 /**
 * @ClassName: DispatcherServlet
-* @Description: ÇëÇó×ª·¢Æ÷
+* @Description: è¯·æ±‚è½¬å‘å™¨
 * @author BEE 
-* @date 2016-3-28 ÏÂÎç3:45:18
+* @date 2016-3-28 ä¸‹åˆ3:45:18
  */
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/*", loadOnStartup = 0)
@@ -44,35 +44,35 @@ public class DispatcherServlet extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig serveltConfig) throws ServletException {
-		//³õÊ¼»¯Ïà¹ØHelperÀà£¬ÊµÀı»¯¸÷ÖÖBean£¬½âÎö×¢½â
+		//åˆå§‹åŒ–ç›¸å…³Helperç±»ï¼Œå®ä¾‹åŒ–å„ç§Beanï¼Œè§£ææ³¨è§£
 		HelperLoader.init();
-		//»ñÈ¡ServletContext ¶ÔÏó£¨ÓÃÓÚ×¢²áServlet)
+		//è·å–ServletContext å¯¹è±¡ï¼ˆç”¨äºæ³¨å†ŒServlet)
 		ServletContext servletContext = serveltConfig.getServletContext();
-		//×¢²á´¦ÀíJSP µÄ Servlet
+		//æ³¨å†Œå¤„ç†JSP çš„ Servlet
 		ServletRegistration jspServlet = servletContext.getServletRegistration("jsp");
 		String appJspPath = ConfigHelper.getAppJspPath() + "*";
 		jspServlet.addMapping(appJspPath);
-		//×¢²á´¦Àí¾²Ì¬×ÊÔ´µÄÄ¬ÈÏServlet
+		//æ³¨å†Œå¤„ç†é™æ€èµ„æºçš„é»˜è®¤Servlet
 		ServletRegistration defaultServlet = servletContext.getServletRegistration("default");
 		defaultServlet.addMapping(ConfigHelper.getAppAssetPath() + "*");
-		//³õÊ¼»¯ÎÄ¼şÉÏ´«ÖúÊÖ
+		//åˆå§‹åŒ–æ–‡ä»¶ä¸Šä¼ åŠ©æ‰‹
 		UploadHelper.init(servletContext);
 	}
 	
 	//@Override
 	protected void dservice(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//»ñÈ¡ÇëÇó·½·¨ÓëÇëÇóÂ·¾¶ £¬»ñÈ¡¿Í»§»úµÄÇëÇó·½Ê½
+		//è·å–è¯·æ±‚æ–¹æ³•ä¸è¯·æ±‚è·¯å¾„ ï¼Œè·å–å®¢æˆ·æœºçš„è¯·æ±‚æ–¹å¼
 		String requestMethod = request.getMethod();
 		String requestPath = request.getPathInfo();
 		
-		//»ñÈ¡Action ´¦ÀíÆ÷
+		//è·å–Action å¤„ç†å™¨
 		Handler handler = ControllerHelper.getHandler(requestMethod, requestPath);
 		if(handler != null){
-			//»ñÈ¡ControllerÀà¼«ÆäBeanÊµÀı
+			//è·å–Controllerç±»æå…¶Beanå®ä¾‹
 			Class<?> controllerClass = handler.getControllerClass();
 			Object controllerBean = BeanHelper.getBean(controllerClass);
-			//´´½¨ÇëÇó²ÎÊı¶ÔÏó
+			//åˆ›å»ºè¯·æ±‚å‚æ•°å¯¹è±¡
 			Map<String,Object> paramMap = new HashMap<String, Object>();
 			Enumeration<String> paramNames = request.getParameterNames();
 			while(paramNames.hasMoreElements()){
@@ -96,11 +96,11 @@ public class DispatcherServlet extends HttpServlet {
 			}
 			
 			Param param = new Param(paramMap);
-			//µ÷ÓÃAction·½·¨
+			//è°ƒç”¨Actionæ–¹æ³•
 			Method actionMethod = handler.getActionMethod();
 			Object result;
 			//-----------------------------------------------------------------------------------------------//
-			// ÕâÀïĞè¶Ô param  ´¦Àí£¬
+			// è¿™é‡Œéœ€å¯¹ param  å¤„ç†ï¼Œ
 			if(paramMap != null && paramMap.size() > 0){
 				result = ReflectionUtil.invokedMethod(controllerBean, actionMethod, param);
 			}else{
@@ -108,9 +108,9 @@ public class DispatcherServlet extends HttpServlet {
 			}
 			
 			//-----------------------------------------------------------------------------------------------//
-			//´¦ÀíAction·½·¨·µ»ØÖµ
+			//å¤„ç†Actionæ–¹æ³•è¿”å›å€¼
 			if(result instanceof View){
-				//·µ»ØJSPÒ³Ãæ
+				//è¿”å›JSPé¡µé¢
 				View view = (View)result;
 				String path = view.getPath();
 				if(StringUtil.isNotEmpty(path)){
@@ -125,7 +125,7 @@ public class DispatcherServlet extends HttpServlet {
 					}
 				}
 			}else if(result instanceof Data){
-				//·µ»ØJSONÊı¾İ
+				//è¿”å›JSONæ•°æ®
 				Data data = (Data)result;
 				Object model = data.getModel();
 				if(model != null){
@@ -147,7 +147,7 @@ public class DispatcherServlet extends HttpServlet {
 			throws ServletException, IOException {
 		ServletHelper.init(request, response);
 		try{
-			//»ñÈ¡ÇëÇó·½·¨ÓëÇëÇóÂ·¾¶ £¬»ñÈ¡¿Í»§»úµÄÇëÇó·½Ê½
+			//è·å–è¯·æ±‚æ–¹æ³•ä¸è¯·æ±‚è·¯å¾„ ï¼Œè·å–å®¢æˆ·æœºçš„è¯·æ±‚æ–¹å¼
 			String requestMethod = request.getMethod();
 			String requestPath = request.getPathInfo();
 			
@@ -155,10 +155,10 @@ public class DispatcherServlet extends HttpServlet {
 				return;
 			}
 			
-			//»ñÈ¡Action ´¦ÀíÆ÷
+			//è·å–Action å¤„ç†å™¨
 			Handler handler = ControllerHelper.getHandler(requestMethod, requestPath);
 			if(handler != null){
-				//»ñÈ¡ControllerÀà¼«ÆäBeanÊµÀı
+				//è·å–Controllerç±»æå…¶Beanå®ä¾‹
 				Class<?> controllerClass = handler.getControllerClass();
 				Object controllerBean = BeanHelper.getBean(controllerClass);
 				
