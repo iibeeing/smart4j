@@ -25,32 +25,32 @@ public class HelloShiro {
 		SecurityManager securityManager = factory.getInstance();
 		SecurityUtils.setSecurityManager(securityManager);
 		
-		//»ñÈ¡µ±Ç°ÓÃ»§
+		//è·å–å½“å‰ç”¨æˆ·
 		Subject subject = SecurityUtils.getSubject();
-		//µÇÂ¼
+		//ç™»å½•
 		//UsernamePasswordToken token = new UsernamePasswordToken("shiro-xx","201314");
 		
 		try{
 			byte[] account=new byte[20];
-			System.out.print("ÇëÄãÊäÈëÕË»§: ");
+			System.out.print("è¯·ä½ è¾“å…¥è´¦æˆ·: ");
 			System.in.read(account);
 			String str_account = new String(account);
 			byte[] password=new byte[20];
-			System.out.print("ÇëÄãÊäÈëÃÜÂë: ");
+			System.out.print("è¯·ä½ è¾“å…¥å¯†ç : ");
 			System.in.read(password);
 			String str_password = new String(password);
 			UsernamePasswordToken token = new UsernamePasswordToken(str_account.trim(),str_password.trim());
-			System.out.println("ÄãÊäÈëµÄĞÅÏ¢ÊÇ ÕË»§" + str_account.trim() + ", ÃÜÂë " + str_password.trim());
+			System.out.println("ä½ è¾“å…¥çš„ä¿¡æ¯æ˜¯ è´¦æˆ·" + str_account.trim() + ", å¯†ç  " + str_password.trim());
 			subject.login(token);
 		}catch (AuthenticationException e) {
-			logger.info("µÇÂ¼Ê§°Ü£¡");
+			logger.info("ç™»å½•å¤±è´¥ï¼");
 			return;
 		}catch (IOException e) {
-			logger.info("µÇÂ¼Ê§°Ü£¡");
+			logger.info("ç™»å½•å¤±è´¥ï¼");
 			return;
 		}
-		logger.info("µÇÂ¼³É¹¦£¡ Hello " + subject.getPrincipal());
-		//×¢Ïú
+		logger.info("ç™»å½•æˆåŠŸï¼ Hello " + subject.getPrincipal());
+		//æ³¨é”€
 		subject.logout();
 	}
 }
