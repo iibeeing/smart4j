@@ -8,49 +8,49 @@ import com.smart4j.framework.util.ReflectionUtil;
 
 /**
 * @ClassName: BeanHelper
-* @Description: BeanÖúÊÖÀà
+* @Description: BeanåŠ©æ‰‹ç±»
 * @author BEE 
-* @date 2016-3-28 ÉÏÎç11:43:12
+* @date 2016-3-28 ä¸Šåˆ11:43:12
  */
 public final class BeanHelper {
 
 	/**
-	 * ¶¨ÒåBeanÓ³Éä£¨ÓÃÓÚ´æ·ÅBeanÀàÓëBeanÊµÀıµÄÓ³Éä¹ØÏµ£©
+	 * å®šä¹‰Beanæ˜ å°„ï¼ˆç”¨äºå­˜æ”¾Beanç±»ä¸Beanå®ä¾‹çš„æ˜ å°„å…³ç³»ï¼‰
 	 */
 	private static final Map<Class<?>,Object> BEAN_MAP = new HashMap<Class<?>,Object>();
 	
 	/**
-	 * ½«¼ÓÔØµÄÀà°üÊµÀı»¯µ½BEAN_MAPÖĞ£¬²¢¿ÉÒÔ¸ù¾İÀàÃû»ñÈ¡
+	 * å°†åŠ è½½çš„ç±»åŒ…å®ä¾‹åŒ–åˆ°BEAN_MAPä¸­ï¼Œå¹¶å¯ä»¥æ ¹æ®ç±»åè·å–
 	 */
 	static{
-		//»ñÈ¡¸Ã°üÏÂËùÓĞµÄÀà
+		//è·å–è¯¥åŒ…ä¸‹æ‰€æœ‰çš„ç±»
 		Set<Class<?>> beanClassSet = ClassHelper.getBeanClassSet();
 		for(Class<?> cls : beanClassSet){
-			//ÊµÀı»¯Àà
+			//å®ä¾‹åŒ–ç±»
 			Object obj = ReflectionUtil.newInstance(cls);
-			//½«ÀàÃûºÍÊµÀı»¯µÄÀàÓ³Éä ²¢×°Èëµ½MapÖĞ
+			//å°†ç±»åå’Œå®ä¾‹åŒ–çš„ç±»æ˜ å°„ å¹¶è£…å…¥åˆ°Mapä¸­
 			BEAN_MAP.put(cls, obj);
 		}
 	}
 	
 	/**
-	@Description: »ñÈ¡BeanÓ³Éä
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:44:48 
+	@Description: è·å–Beanæ˜ å°„
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:44:48 
 	@version 1.0
-	@return Map<Class<?>,Object>    ·µ»ØÀàĞÍ
+	@return Map<Class<?>,Object>    è¿”å›ç±»å‹
 	 */
 	public static Map<Class<?>,Object> getBeanMap(){
 		return BEAN_MAP;
 	}
 	
 	/**
-	@Description: »ñÈ¡BeanÊµÀı
+	@Description: è·å–Beanå®ä¾‹
 	@param @param cls
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:46:10 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:46:10 
 	@version 1.0
-	@return T    ·µ»ØÀàĞÍ
+	@return T    è¿”å›ç±»å‹
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T getBean(Class<T> cls){
@@ -61,12 +61,12 @@ public final class BeanHelper {
 	}
 	
 	/**
-	@Description: ÉèÖÃBeanÊµÀı
+	@Description: è®¾ç½®Beanå®ä¾‹
 	@param @param cls
-	@param @param obj    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:46:35 
+	@param @param obj    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:46:35 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void setBean(Class<?> cls,Object obj){
 		BEAN_MAP.put(cls, obj);

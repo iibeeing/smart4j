@@ -2,18 +2,18 @@ package com.smart4j.framework.proxy;
 
 /**
  * @ClassName: Proxy
- * @Description: 链式代理接口
+ * @Description: 閾惧紡浠ｇ悊鎺ュ彛
  * @author BEE
- * @date 2016-3-31 下午5:00:29
+ * @date 2016-3-31 涓嬪崍5:00:29
  */
 public interface Proxy {
 	/**
 	 * @Title: doProxy
-	 * @Description: 执行链式代理
+	 * @Description: 鎵ц閾惧紡浠ｇ悊
 	 * @param @param proxyChain
 	 * @param @return
-	 * @param @throws Throwable 设定文件
-	 * @return Object 返回类型
+	 * @param @throws Throwable 璁惧畾鏂囦欢
+	 * @return Object 杩斿洖绫诲瀷
 	 * @throws
 	 */
 	Object doProxy(ProxyChain proxyChain) throws Throwable;

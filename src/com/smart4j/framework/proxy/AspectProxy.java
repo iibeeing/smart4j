@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: AspectProxy
- * @Description: ÇĞÃæ´úÀíÀà
+ * @Description: åˆ‡é¢ä»£ç†ç±»
  * @author BEE
- * @date 2016-3-31 ÏÂÎç4:57:03
+ * @date 2016-3-31 ä¸‹åˆ4:57:03
  */
 public abstract class AspectProxy implements Proxy {
 

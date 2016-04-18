@@ -2,9 +2,9 @@ package com.smart4j.plugin.security.exception;
 
 /**
 @ClassName: AuthcException
-@Description: 认证异常（当非法访问时抛出）
+@Description: 璁よ瘉寮傚父锛堝綋闈炴硶璁块棶鏃舵姏鍑猴級
 @author BEE 
-@date 2016-4-7 下午4:37:07
+@date 2016-4-7 涓嬪崍4:37:07
  */
 public class AuthcException extends Exception {
 

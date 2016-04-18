@@ -9,18 +9,18 @@ import com.smart4j.framework.util.CodeUtil;
 
 /**
 @ClassName: Md5CredentialMatcher
-@Description: MD5ÃÜÂëÆ¥ÅäÆ÷
+@Description: MD5å¯†ç åŒ¹é…å™¨
 @author BEE 
-@date 2016-4-11 ÉÏÎç11:47:16
+@date 2016-4-11 ä¸Šåˆ11:47:16
  */
 public class Md5CredentialMatcher implements CredentialsMatcher {
 
 	@Override
 	public boolean doCredentialsMatch(AuthenticationToken token,
 			AuthenticationInfo info) {
-		//»ñÈ¡´Ó±íµ¥Ìá½»¹ıÀ´µÄÃìÃ£¡¢Ã÷ÎÄ¡¢ÉĞÎ´Í¨¹ıµÄMD5¼ÓÃÜ
+		//è·å–ä»è¡¨å•æäº¤è¿‡æ¥çš„æ¸ºèŒ«ã€æ˜æ–‡ã€å°šæœªé€šè¿‡çš„MD5åŠ å¯†
 		String submitted = String.valueOf(((UsernamePasswordToken)token).getPassword());
-		//»ñÈ¡Êı¾İ¿âÖĞ´æ´¢µÄÃÜÂë£¬ÒÑÍ¨¹ıMD5¼ÓÃÜ
+		//è·å–æ•°æ®åº“ä¸­å­˜å‚¨çš„å¯†ç ï¼Œå·²é€šè¿‡MD5åŠ å¯†
 		String encrypted = String.valueOf(info.getCredentials());
 		return CodeUtil.md5(submitted).equals(encrypted);
 	}

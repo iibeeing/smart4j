@@ -6,9 +6,9 @@ import com.smart4j.framework.ConfigHelper;
 
 /**
 @ClassName: SecurityConfig
-@Description: ´ÓÅäÖÃÎÄ¼şÖĞ»ñÈ¡Ïà¹ØÊôĞÔ
+@Description: ä»é…ç½®æ–‡ä»¶ä¸­è·å–ç›¸å…³å±æ€§
 @author BEE 
-@date 2016-4-12 ÉÏÎç10:14:12
+@date 2016-4-12 ä¸Šåˆ10:14:12
  */
 public final class SecurityConfig {
 	private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
@@ -24,14 +24,14 @@ public final class SecurityConfig {
         try {
             cls = Class.forName(className);
         } catch (ClassNotFoundException e) {
-            logger.error("ÎŞ·¨´Ó " + SecurityConstant.SMART_SECURITY + " ÅäÖÃÖĞÕÒµ½¶ÔÓ¦µÄÀà", e);
+            logger.error("æ— æ³•ä» " + SecurityConstant.SMART_SECURITY + " é…ç½®ä¸­æ‰¾åˆ°å¯¹åº”çš„ç±»", e);
         }
         SmartSecurity smartSecurity = null;
         if (cls != null) {
             try {
                 smartSecurity = (SmartSecurity) cls.newInstance();
             } catch (Exception e) {
-                logger.error(SmartSecurity.class.getSimpleName() + " ÊµÀı»¯Òì³£", e);
+                logger.error(SmartSecurity.class.getSimpleName() + " å®ä¾‹åŒ–å¼‚å¸¸", e);
             }
         }
         return smartSecurity;

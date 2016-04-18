@@ -36,16 +36,16 @@ public final class UploadHelper {
 	
 
 	/**
-	 * Apache Commons FileUpload Ìá¹©µÄServlet ÎÄ¼şÉÏ´«¶ÔÏó
+	 * Apache Commons FileUpload æä¾›çš„Servlet æ–‡ä»¶ä¸Šä¼ å¯¹è±¡
 	 */
 	private static ServletFileUpload servletFileUpload;
 	
 	/**
-	@Description: ³õÊ¼»¯
-	@param @param servletContext    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç9:51:09 
+	@Description: åˆå§‹åŒ–
+	@param @param servletContext    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ9:51:09 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void init(ServletContext servletContext){
 		File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
@@ -57,25 +57,25 @@ public final class UploadHelper {
 	}
 	
 	/**
-	@Description: ÅĞ¶ÏÇëÇóÊÇ·ñÎªmultipartÀàĞÍ
+	@Description: åˆ¤æ–­è¯·æ±‚æ˜¯å¦ä¸ºmultipartç±»å‹
 	@param @param requset
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç9:51:19 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ9:51:19 
 	@version 1.0
-	@return boolean    ·µ»ØÀàĞÍ
+	@return boolean    è¿”å›ç±»å‹
 	 */
 	public static boolean isMultipart(HttpServletRequest request){
 		return ServletFileUpload.isMultipartContent(request);
 	}
 	
 	/**
-	@Description: ´´½¨ÇëÇó¶ÔÏó
+	@Description: åˆ›å»ºè¯·æ±‚å¯¹è±¡
 	@param @param request
 	@param @return
-	@param @throws IOException    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç9:50:14 
+	@param @throws IOException    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ9:50:14 
 	@version 1.0
-	@return Param    ·µ»ØÀàĞÍ
+	@return Param    è¿”å›ç±»å‹
 	 */
 	public static Param createParam(HttpServletRequest request) throws IOException{
 		List<FormParam> formParamList = new ArrayList<FormParam>();
@@ -88,12 +88,12 @@ public final class UploadHelper {
 					List<FileItem> fileItemList = fileItemListEntry.getValue();
 					if(CollectionUtil.isNotEmpty(fileItemListMap)){
 						for(FileItem fileItem : fileItemList){
-							//ÆÕÍ¨±íµ¥×Ö¶Î
+							//æ™®é€šè¡¨å•å­—æ®µ
 							if(fileItem.isFormField()){
 								String fieldValue = fileItem.getString("UTF-8");
 								formParamList.add(new FormParam(fieldName, fieldValue));
 							}
-							//ÎÄ¼şÉÏ´«×Ö¶Î
+							//æ–‡ä»¶ä¸Šä¼ å­—æ®µ
 							else{
 								String fileName = FileUtil.getRealFileName(new String(fileItem.getName().getBytes(),"UTF-8"));
 								if(StringUtil.isNotEmpty(fileName)){
@@ -115,12 +115,12 @@ public final class UploadHelper {
 	}
 	
 	/**
-	@Description: ÉÏ´«ÎÄ¼ş
+	@Description: ä¸Šä¼ æ–‡ä»¶
 	@param @param basePath
-	@param @param fileParam    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç9:48:47 
+	@param @param fileParam    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ9:48:47 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void uploadFile(String basePath,FileParam fileParam){
 		try{
@@ -138,12 +138,12 @@ public final class UploadHelper {
 	}
 	
 	/**
-	@Description: ÅúÁ¿ÉÏ´«ÎÄ¼ş
+	@Description: æ‰¹é‡ä¸Šä¼ æ–‡ä»¶
 	@param @param basePath
-	@param @param fileParamList    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç9:49:04 
+	@param @param fileParamList    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ9:49:04 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void uploadFile(String basePath,List<FileParam> fileParamList){
 		try{

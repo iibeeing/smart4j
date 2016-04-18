@@ -4,17 +4,17 @@ import javax.sql.DataSource;
 
 /**
 @ClassName: DataSourceFactory
-@Description: Êı¾İÔ´¹¤³§
+@Description: æ•°æ®æºå·¥å‚
 @author BEE 
-@date 2016-4-13 ÏÂÎç2:45:31
+@date 2016-4-13 ä¸‹åˆ2:45:31
  */
 public interface DataSourceFactory {
 	/**
-	@Description: »ñÈ¡Êı¾İÔ´
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-13 ÏÂÎç2:45:22 
+	@Description: è·å–æ•°æ®æº
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-13 ä¸‹åˆ2:45:22 
 	@version 1.0
-	@return DataSource    ·µ»ØÀàĞÍ
+	@return DataSource    è¿”å›ç±»å‹
 	 */
     DataSource getDataSource();
 }

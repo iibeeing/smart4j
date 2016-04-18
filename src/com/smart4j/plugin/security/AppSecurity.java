@@ -6,9 +6,9 @@ import com.smart4j.cc.helper.DatabaseHelper;
 
 /**
 @ClassName: AppSecurity
-@Description: 应用安全控制
+@Description: 搴旂敤瀹夊叏鎺у埗
 @author BEE 
-@date 2016-4-7 下午4:05:46
+@date 2016-4-7 涓嬪崍4:05:46
  */
 public class AppSecurity implements SmartSecurity {
 

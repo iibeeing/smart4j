@@ -6,15 +6,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 /**
 @ClassName: HasRoles
-@Description: ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÓµÓĞÄ³ÖÖ½ÇÉ«
+@Description: åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æŸç§è§’è‰²
 @author BEE 
-@date 2016-4-14 ÏÂÎç5:33:26
+@date 2016-4-14 ä¸‹åˆ5:33:26
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HasRoles {
 /**
-* ½ÇÉ«×Ö·û´®
+* è§’è‰²å­—ç¬¦ä¸²
 */
 String value();
 } 

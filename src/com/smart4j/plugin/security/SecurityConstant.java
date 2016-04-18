@@ -2,9 +2,9 @@ package com.smart4j.plugin.security;
 
 /**
 @ClassName: SecurityConstant
-@Description: 常量接口
+@Description: 甯搁噺鎺ュ彛
 @author BEE 
-@date 2016-4-12 上午10:19:17
+@date 2016-4-12 涓婂崍10:19:17
  */
 public interface SecurityConstant {
 

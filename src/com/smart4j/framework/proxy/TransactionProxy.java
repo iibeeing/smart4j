@@ -10,9 +10,9 @@ import com.smart4j.framework.annotation.Transaction;
 
 /**
 * @ClassName: TransactionProxy
-* @Description: 事务代理
+* @Description: 浜嬪姟浠ｇ悊
 * @author BEE 
-* @date 2016-4-5 上午10:21:22
+* @date 2016-4-5 涓婂崍10:21:22
  */
 public class TransactionProxy implements Proxy {
 

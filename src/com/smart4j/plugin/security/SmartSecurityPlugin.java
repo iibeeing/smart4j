@@ -11,18 +11,18 @@ import org.apache.shiro.web.env.EnvironmentLoaderListener;
 
 /**
 @ClassName: SmartSecurityPlugin
-@Description: SmartSecurity²å¼ş
+@Description: SmartSecurityæ’ä»¶
 @author BEE 
-@date 2016-4-11 ÉÏÎç10:40:41
+@date 2016-4-11 ä¸Šåˆ10:40:41
  */
 public class SmartSecurityPlugin implements ServletContainerInitializer {
 
 	public void onStartup(Set<Class<?>> handlesTypes,ServletContext servletContext) throws ServletException{
-		//ÉèÖÃ³õÊ¼»¯²ÎÊı
+		//è®¾ç½®åˆå§‹åŒ–å‚æ•°
 		servletContext.setInitParameter("shiroConfigLocations", "classpath:smart-security.ini");
-		//×¢²áListener
+		//æ³¨å†ŒListener
 		servletContext.addListener(EnvironmentLoaderListener.class	);
-		//×¢²áFilter
+		//æ³¨å†ŒFilter
 		FilterRegistration.Dynamic smartSecurityFilter = servletContext.addFilter("SmartSecurityFilter", SmartSecurityFilter.class);
 		smartSecurityFilter.addMappingForUrlPatterns(null, false, "/*");
 	}

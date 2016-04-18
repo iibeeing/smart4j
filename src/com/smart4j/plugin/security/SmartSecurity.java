@@ -5,32 +5,32 @@ import java.util.Set;
 public interface SmartSecurity {
 
 	/**
-	@Description: ¸ù¾İÓÃ»§Ãû»ñÈ¡ÃÜÂë
+	@Description: æ ¹æ®ç”¨æˆ·åè·å–å¯†ç 
 	@param @param username
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç3:54:24 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ3:54:24 
 	@version 1.0
-	@return String    ·µ»ØÀàĞÍ
+	@return String    è¿”å›ç±»å‹
 	 */
 	String getPassword(String username);
 	
 	/**
-	@Description: ¸ù¾İÓÃ»§Ãû»ñÈ¡½ÇÉ«Ãû¼¯ºÏ
-	@param @param username ÓÃ»§Ãû
-	@param @return    ½ÇÉ«Ãû¼¯ºÏ
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç3:55:21 
+	@Description: æ ¹æ®ç”¨æˆ·åè·å–è§’è‰²åé›†åˆ
+	@param @param username ç”¨æˆ·å
+	@param @return    è§’è‰²åé›†åˆ
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ3:55:21 
 	@version 1.0
-	@return Set<String>    ·µ»ØÀàĞÍ
+	@return Set<String>    è¿”å›ç±»å‹
 	 */
 	Set<String> getRoleNameSet(String username);
 	
 	/**
-	@Description: ¸ù¾İ½ÇÉ«Ãû»ñÈ¡È¨ÏŞÃû¼¯ºÏ
-	@param @param roleName ½ÇÉ«Ãû
-	@param @return    È¨ÏŞÃû¼¯ºÏ
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç3:57:02 
+	@Description: æ ¹æ®è§’è‰²åè·å–æƒé™åé›†åˆ
+	@param @param roleName è§’è‰²å
+	@param @return    æƒé™åé›†åˆ
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ3:57:02 
 	@version 1.0
-	@return Set<String>    ·µ»ØÀàĞÍ
+	@return Set<String>    è¿”å›ç±»å‹
 	 */
 	Set<String> getPermissionNameSet(String roleName);
 }

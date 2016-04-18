@@ -8,33 +8,33 @@ import org.slf4j.LoggerFactory;
 
 /**
 @ClassName: FileUtil
-@Description: ÎÄ¼ş²Ù×÷¹¤¾ßÀà
+@Description: æ–‡ä»¶æ“ä½œå·¥å…·ç±»
 @author BEE 
-@date 2016-4-6 ÉÏÎç9:57:32
+@date 2016-4-6 ä¸Šåˆ9:57:32
  */
 public final class FileUtil {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FileUtil.class);
 	
 	/**
-	@Description: »ñÈ¡ÕæÊµÎÄ¼şÃû£¨×Ô¶¯È¥µôÎÄ¼şÂ·¾¶£©
+	@Description: è·å–çœŸå®æ–‡ä»¶åï¼ˆè‡ªåŠ¨å»æ‰æ–‡ä»¶è·¯å¾„ï¼‰
 	@param @param fileName
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç9:58:57 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ9:58:57 
 	@version 1.0
-	@return String    ·µ»ØÀàĞÍ
+	@return String    è¿”å›ç±»å‹
 	 */
 	public static String getRealFileName(String fileName){
 		return FilenameUtils.getName(fileName);
 	}
 	
 	/**
-	@Description: ´´½¨ÎÄ¼ş
+	@Description: åˆ›å»ºæ–‡ä»¶
 	@param @param filePath
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç10:03:51 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ10:03:51 
 	@version 1.0
-	@return File    ·µ»ØÀàĞÍ
+	@return File    è¿”å›ç±»å‹
 	 */
 	public static File createFile(String filePath){
 		File file;

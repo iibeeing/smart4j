@@ -18,29 +18,29 @@ import com.smart4j.framework.proxy.TransactionProxy;
 
 /**
 * @ClassName: AopHelper
-* @Description: ÇĞÃæ¸¨ÖúÀà
+* @Description: åˆ‡é¢è¾…åŠ©ç±»
 * @author BEE 
-* @date 2016-3-31 ÏÂÎç5:03:31
+* @date 2016-3-31 ä¸‹åˆ5:03:31
  */
 public final class AopHelper {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(AopHelper.class);
 	
 	/**
-	 * ¾²Ì¬¿é³õÊ¼»¯AOP¿ò¼Ü
+	 * é™æ€å—åˆå§‹åŒ–AOPæ¡†æ¶
 	 */
 	static{
 		try{
-			//´úÀíÀàºÍÄ¿±êÀà¼¯ºÏµÄÓ³Éä¹ØÏµMap£¬°üº¬ÆÕÍ¨ÇĞÃæÀàºÍÊÂÎñÇĞÃæÀà
+			//ä»£ç†ç±»å’Œç›®æ ‡ç±»é›†åˆçš„æ˜ å°„å…³ç³»Mapï¼ŒåŒ…å«æ™®é€šåˆ‡é¢ç±»å’Œäº‹åŠ¡åˆ‡é¢ç±»
 			Map<Class<?>,Set<Class<?>>> proxyMap = createProxyMap();
-			//key-value ×ª»» ¼´Ä¿±êÀà£¨±»ÇĞÀà£©- ÇĞÃæÀà
+			//key-value è½¬æ¢ å³ç›®æ ‡ç±»ï¼ˆè¢«åˆ‡ç±»ï¼‰- åˆ‡é¢ç±»
 			Map<Class<?>,List<Proxy>> targetMap = createTargetMap(proxyMap);
 			for(Map.Entry<Class<?>, List<Proxy>> targetEntry : targetMap.entrySet()){
-				//Ä¿±êÀà
+				//ç›®æ ‡ç±»
 				Class<?> targetClass = targetEntry.getKey();
-				//ÇĞÃæÀà£¬ÓĞ¿ÉÄÜÒ»¸öÄ¿±êÀàÓĞ¶à¸öÇĞÃæÀà£¬±ÈÈçÈ¨ÏŞÇĞÃæ¡¢ÈÕÖ¾ÇĞÃæµÈ
+				//åˆ‡é¢ç±»ï¼Œæœ‰å¯èƒ½ä¸€ä¸ªç›®æ ‡ç±»æœ‰å¤šä¸ªåˆ‡é¢ç±»ï¼Œæ¯”å¦‚æƒé™åˆ‡é¢ã€æ—¥å¿—åˆ‡é¢ç­‰
 				List<Proxy> proxyList = targetEntry.getValue();
-				//¶¯Ì¬Éú³ÉÄ³¸öÀà¾ßÌåµÄÇĞÃæ£¨´úÀí£©Àà
+				//åŠ¨æ€ç”ŸæˆæŸä¸ªç±»å…·ä½“çš„åˆ‡é¢ï¼ˆä»£ç†ï¼‰ç±»
 				Object proxy = ProxyManager.createProxy(targetClass, proxyList);
 				BeanHelper.setBean(targetClass, proxy);
 			}
@@ -51,36 +51,36 @@ public final class AopHelper {
 	
 
 	/**
-	@Description: »ñÈ¡×¢½âÀàÊÇaspect.value()µÄËùÓĞÀà£¬±ÈÈçaspect.value()=Controller £¬ÄÇ¾ÍÊÇËùÓĞ´ø×¢½âÊÇControllerÀàµÄ
+	@Description: è·å–æ³¨è§£ç±»æ˜¯aspect.value()çš„æ‰€æœ‰ç±»ï¼Œæ¯”å¦‚aspect.value()=Controller ï¼Œé‚£å°±æ˜¯æ‰€æœ‰å¸¦æ³¨è§£æ˜¯Controllerç±»çš„
 	@param @param aspect
 	@param @return
-	@param @throws Exception    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:57:24 
+	@param @throws Exception    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:57:24 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	private static Set<Class<?>> createTargetClassSet(Aspect aspect) throws Exception{
 		Set<Class<?>> targetClassSet = new HashSet<Class<?>>();
-		//ÆäÊµ¾ÍÊÇAspect×¢½â
+		//å…¶å®å°±æ˜¯Aspectæ³¨è§£
 		Class<? extends Annotation> annotation = aspect.value();
 		if(annotation != null && !annotation.equals(Aspect.class)){
-			//±ÈÈçaspect.value()ÊÇ controller£¬ÄÇÃ´±¾´ËµÄÄ¿±êÀà¾ÍÊÇ×¢½âÊÇControllerµÄÀà£¨ËùÓĞµÄ¿ØÖÆÆ÷Àà£©
+			//æ¯”å¦‚aspect.value()æ˜¯ controllerï¼Œé‚£ä¹ˆæœ¬æ­¤çš„ç›®æ ‡ç±»å°±æ˜¯æ³¨è§£æ˜¯Controllerçš„ç±»ï¼ˆæ‰€æœ‰çš„æ§åˆ¶å™¨ç±»ï¼‰
 			targetClassSet.addAll(ClassHelper.getClassSetByAnnotation(annotation));
 		}
 		return targetClassSet;
 	}
 	
 	/**
-	@Description: »ñÈ¡Ä¿±êÀàºÍ´úÀíÀàµÄÓ³Éä¹ØÏµ
+	@Description: è·å–ç›®æ ‡ç±»å’Œä»£ç†ç±»çš„æ˜ å°„å…³ç³»
 	@param @return
-	@param @throws Exception    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:48:58 
+	@param @throws Exception    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:48:58 
 	@version 1.0
-	@return Map<Class<?>,Set<Class<?>>>    ·µ»ØÀàĞÍ
+	@return Map<Class<?>,Set<Class<?>>>    è¿”å›ç±»å‹
 	 */
 	private static Map<Class<?>,Set<Class<?>>> createProxyMap() throws Exception{
 		Map<Class<?>,Set<Class<?>>> proxyMap = new HashMap<Class<?>, Set<Class<?>>>();
-		//±íÊ¾¼Ì³ĞÁËAspectProxy µÄÀà¿ÉÄÜ»áÊÇ´úÀíÀà£¬ÏÂÃæ»á¹ıÂË£¬Èç¹ûAnnotationÊÇAspectÄÇÃ´¾ÍÊÇ´úÀíÀà
+		//è¡¨ç¤ºç»§æ‰¿äº†AspectProxy çš„ç±»å¯èƒ½ä¼šæ˜¯ä»£ç†ç±»ï¼Œä¸‹é¢ä¼šè¿‡æ»¤ï¼Œå¦‚æœAnnotationæ˜¯Aspecté‚£ä¹ˆå°±æ˜¯ä»£ç†ç±»
 /*		Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
 		for(Class<?> proxyClass : proxyClassSet){
 			if(proxyClass.isAnnotationPresent(Aspect.class)){
@@ -95,31 +95,31 @@ public final class AopHelper {
 	}
 	
 	/**
-	 * ¸ù¾İÓ³Éä¹ØÏµ·ÖÎöÄ¿±êÀàºÍ´úÀí¶ÔÏóÁĞ±íÖ®¼äµÄÓ³Éä¹ØÏµ(key-value ×ª»»)
-	 * ½«Ô­À´µÄ1¸öÇĞÃæÀà¶ÔÓ¦Ò»¸ö±»ÇĞÀà£¨Î¯ÍĞÀà£©¼¯ºÏ±ä»»³É1¸ö±»ÇĞÀà£¨Ä¿±êÀàOR±»´úÀíÀà£©
-	 * ¶ÔÓ¦Ò»¸öÇĞÃæÀà£¨´úÀíÀà£©£¬Ò²¾ÍÊÇÌí¼ÓÒ»Ò»¶ÔÓ¦¹ØÏµ¿ÉÒÔÖ±½Ó´ÓMapÖĞÕÒµ½
+	 * æ ¹æ®æ˜ å°„å…³ç³»åˆ†æç›®æ ‡ç±»å’Œä»£ç†å¯¹è±¡åˆ—è¡¨ä¹‹é—´çš„æ˜ å°„å…³ç³»(key-value è½¬æ¢)
+	 * å°†åŸæ¥çš„1ä¸ªåˆ‡é¢ç±»å¯¹åº”ä¸€ä¸ªè¢«åˆ‡ç±»ï¼ˆå§”æ‰˜ç±»ï¼‰é›†åˆå˜æ¢æˆ1ä¸ªè¢«åˆ‡ç±»ï¼ˆç›®æ ‡ç±»ORè¢«ä»£ç†ç±»ï¼‰
+	 * å¯¹åº”ä¸€ä¸ªåˆ‡é¢ç±»ï¼ˆä»£ç†ç±»ï¼‰ï¼Œä¹Ÿå°±æ˜¯æ·»åŠ ä¸€ä¸€å¯¹åº”å…³ç³»å¯ä»¥ç›´æ¥ä»Mapä¸­æ‰¾åˆ°
 	 *							    ***********					    	A---------->1
-	 * 							 	*	A¡¢B		*							B---------->1
-	 * 1ÇĞÃæÀà----------> 	*				*  ĞŞ¸ÄÎª												------>Ä¿±êÀà -> ´úÀíÀà
+	 * 							 	*	Aã€B		*							B---------->1
+	 * 1åˆ‡é¢ç±»----------> 	*				*  ä¿®æ”¹ä¸º												------>ç›®æ ‡ç±» -> ä»£ç†ç±»
 	 * 					 		    *		  D 	*							D---------->1				------> A---->1
-	 * 					 			***********															------> B---->1¡¢2
+	 * 					 			***********															------> B---->1ã€2
 	 *					 			***********							B---------->2				------> C---->2
-	 * 					 			*		B		*							C---------->2				------> D---->1¡¢2
-	 * 2ÇĞÃæÀà---------->	*	C¡¢		*  ĞŞ¸ÄÎª				
+	 * 					 			*		B		*							C---------->2				------> D---->1ã€2
+	 * 2åˆ‡é¢ç±»---------->	*	Cã€		*  ä¿®æ”¹ä¸º				
 	 * 					 			*		  D 	*							D---------->2
 	 * 					 			***********
 	 */					 
 	private static Map<Class<?>,List<Proxy>> createTargetMap(Map<Class<?>,Set<Class<?>>> proxyMap) throws Exception{
 		Map<Class<?>,List<Proxy>> targetMap = new HashMap<Class<?>,List<Proxy>>();
 		for(Map.Entry<Class<?>, Set<Class<?>>> proxyEntry : proxyMap.entrySet()){
-			//ÇĞÃæÀà
+			//åˆ‡é¢ç±»
 			Class<?> proxyClass = proxyEntry.getKey();
-			//±»ÇĞÀà
+			//è¢«åˆ‡ç±»
 			Set<Class<?>> targetClassSet = proxyEntry.getValue();
 			for(Class<?> targetClass : targetClassSet){
-				//ÇĞÃæÀàÊµÀı
+				//åˆ‡é¢ç±»å®ä¾‹
 				Proxy proxy = (Proxy) proxyClass.newInstance();
-				//Èç¹ûÄ¿±êÀà£¨±»ÇĞÀà£©ÒÑ¾­°üº¬ÁË£¬Ôò½«¸ÃÇĞÃæÀàµÄÊµÀıÓ³Éäµ½¸ÃÄ¿±êÀàÉÏ
+				//å¦‚æœç›®æ ‡ç±»ï¼ˆè¢«åˆ‡ç±»ï¼‰å·²ç»åŒ…å«äº†ï¼Œåˆ™å°†è¯¥åˆ‡é¢ç±»çš„å®ä¾‹æ˜ å°„åˆ°è¯¥ç›®æ ‡ç±»ä¸Š
 				if(targetMap.containsKey(targetClass)){
 					targetMap.get(targetClass).add(proxy);
 				}else{
@@ -133,23 +133,23 @@ public final class AopHelper {
 	}
 	
 	/**
-	@Description: Ìí¼ÓÆÕÍ¨ÇĞÃæ´úÀí
-	@param @param proxyMap £¨ÇĞÃæÀà - ±»ÇĞÀà¼¯ºÏ£©
-	@param @throws Exception    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:49:22 
+	@Description: æ·»åŠ æ™®é€šåˆ‡é¢ä»£ç†
+	@param @param proxyMap ï¼ˆåˆ‡é¢ç±» - è¢«åˆ‡ç±»é›†åˆï¼‰
+	@param @throws Exception    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:49:22 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	private static void addAspectProxy(Map<Class<?>,Set<Class<?>>> proxyMap) throws Exception{
-		//ÆÕÍ¨ÇĞÃæÀà±ØĞëÊÇ¼Ì³ĞAspectProxy£¬»ñÈ¡ËùÓĞÇĞÃæÀà
+		//æ™®é€šåˆ‡é¢ç±»å¿…é¡»æ˜¯ç»§æ‰¿AspectProxyï¼Œè·å–æ‰€æœ‰åˆ‡é¢ç±»
 		Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
 		for(Class<?> proxyClass : proxyClassSet){
-			//ÆÕÍ¨ÇĞÃæÀà±ØĞëÊÇÓĞAspectµÄ±êÊ¶£¬»ñÈ¡ËùÓĞÇĞÃæÀà
+			//æ™®é€šåˆ‡é¢ç±»å¿…é¡»æ˜¯æœ‰Aspectçš„æ ‡è¯†ï¼Œè·å–æ‰€æœ‰åˆ‡é¢ç±»
 			if(proxyClass.isAnnotationPresent(Aspect.class)){
-				//»ñÈ¡AspectµÄÖµ£¬¼´»ñÈ¡¸ÃÇĞÃæÀàÒªºáÇĞµÄ¶ÔÏó»òÕßÄÄÒ»Àà¶ÔÏó
-				//£¨±ÈÈç@Aspect(Controller.class) ±íÊ¾¸ÃÇĞÃæÀàºáÇĞ´øController×¢½âµÄÀà£¬¼´¿ØÖÆÆ÷Àà£©
+				//è·å–Aspectçš„å€¼ï¼Œå³è·å–è¯¥åˆ‡é¢ç±»è¦æ¨ªåˆ‡çš„å¯¹è±¡æˆ–è€…å“ªä¸€ç±»å¯¹è±¡
+				//ï¼ˆæ¯”å¦‚@Aspect(Controller.class) è¡¨ç¤ºè¯¥åˆ‡é¢ç±»æ¨ªåˆ‡å¸¦Controlleræ³¨è§£çš„ç±»ï¼Œå³æ§åˆ¶å™¨ç±»ï¼‰
 				Aspect aspect = proxyClass.getAnnotation(Aspect.class);
-				//´´½¨±»ºáÇĞµÄÀà£¬±ÈÈçËùÓĞµÄControllerÀà
+				//åˆ›å»ºè¢«æ¨ªåˆ‡çš„ç±»ï¼Œæ¯”å¦‚æ‰€æœ‰çš„Controllerç±»
 				Set<Class<?>> targetClassSet = createTargetClassSet(aspect);
 				proxyMap.put(proxyClass,targetClassSet);
 			}
@@ -157,11 +157,11 @@ public final class AopHelper {
 	}
 	
 	/**
-	@Description: Ìí¼ÓÊÂÎñÇĞÃæ´úÀí
-	@param @param proxyMap    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:49:45 
+	@Description: æ·»åŠ äº‹åŠ¡åˆ‡é¢ä»£ç†
+	@param @param proxyMap    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:49:45 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	private static void addTransactionProxy(Map<Class<?>,Set<Class<?>>> proxyMap){
 		Set<Class<?>> serviceClassSet = ClassHelper.getClassSetByAnnotation(Service.class);

@@ -6,9 +6,9 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
 /**
 @ClassName: Authenticated
-@Description: ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÒÑÈÏÖ¤
+@Description: åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦å·²è®¤è¯
 @author BEE 
-@date 2016-4-14 ÏÂÎç5:31:19
+@date 2016-4-14 ä¸‹åˆ5:31:19
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME) 

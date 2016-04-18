@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory;
 
 /**
 @ClassName: ServletHelper
-@Description: ServeltÖúÊÖÀà
+@Description: ServeltåŠ©æ‰‹ç±»
 @author BEE 
-@date 2016-4-7 ÉÏÎç9:15:27
+@date 2016-4-7 ä¸Šåˆ9:15:27
  */
 
 public final class ServletHelper {
@@ -20,7 +20,7 @@ public final class ServletHelper {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ServletHelper.class);
 	
 	/**
-	 * ÊÇÃ¿¸öÏß³Ì¶À×ÔÓĞÒ»·İServletHelperÊµÀı
+	 * æ˜¯æ¯ä¸ªçº¿ç¨‹ç‹¬è‡ªæœ‰ä¸€ä»½ServletHelperå®ä¾‹
 	 */
 	private static final ThreadLocal<ServletHelper> SERVLET_HELPER_HOLDER = new ThreadLocal<ServletHelper>();;
 	
@@ -33,91 +33,91 @@ public final class ServletHelper {
 	}
 	
 	/**
-	@Description: ³õÊ¼»¯
+	@Description: åˆå§‹åŒ–
 	@param @param request
-	@param @param response    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:20:58 
+	@param @param response    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:20:58 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void init(HttpServletRequest request,HttpServletResponse response){
 		SERVLET_HELPER_HOLDER.set(new ServletHelper(request, response));
 	}
 	
 	/**
-	@Description: Ïú»Ù
-	@param     Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:21:27 
+	@Description: é”€æ¯
+	@param     è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:21:27 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void destory(){
 		SERVLET_HELPER_HOLDER.remove();
 	}
 	
 	/**
-	@Description: »ñÈ¡Request¶ÔÏó
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:22:08 
+	@Description: è·å–Requestå¯¹è±¡
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:22:08 
 	@version 1.0
-	@return HttpServletRequest    ·µ»ØÀàĞÍ
+	@return HttpServletRequest    è¿”å›ç±»å‹
 	 */
 	private static HttpServletRequest getRequest(){
 		return SERVLET_HELPER_HOLDER.get().request;
 	}
 	
 	/**
-	@Description: »ñÈ¡Response¶ÔÏó
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:25:46 
+	@Description: è·å–Responseå¯¹è±¡
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:25:46 
 	@version 1.0
-	@return HttpServletResponse    ·µ»ØÀàĞÍ
+	@return HttpServletResponse    è¿”å›ç±»å‹
 	 */
 	private static HttpServletResponse getResponse(){
 		return SERVLET_HELPER_HOLDER.get().response;
 	}
 	
 	/**
-	@Description: »ñÈ¡Session¶ÔÏó
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:25:22 
+	@Description: è·å–Sessionå¯¹è±¡
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:25:22 
 	@version 1.0
-	@return HttpSession    ·µ»ØÀàĞÍ
+	@return HttpSession    è¿”å›ç±»å‹
 	 */
 	private static HttpSession getSession(){
 		return getRequest().getSession();
 	}
 	
 	/**
-	@Description: »ñÈ¡ServletContext¶ÔÏó
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:25:05 
+	@Description: è·å–ServletContextå¯¹è±¡
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:25:05 
 	@version 1.0
-	@return ServletContext    ·µ»ØÀàĞÍ
+	@return ServletContext    è¿”å›ç±»å‹
 	 */
 	private static ServletContext getServletContext(){
 		return getRequest().getServletContext();
 	}
 	
 	/**
-	@Description: ½«ÊôĞÔ·ÅÈëRequestÖĞ
+	@Description: å°†å±æ€§æ”¾å…¥Requestä¸­
 	@param @param key
-	@param @param value    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:28:54 
+	@param @param value    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:28:54 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void setRequestAttribute(String key,Object value){
 		getRequest().setAttribute(key, value);
 	}
 	
 	/**
-	@Description: ´ÓRequestÖĞ»ñÈ¡ÊôĞÔ
+	@Description: ä»Requestä¸­è·å–å±æ€§
 	@param @param key
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:31:10 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:31:10 
 	@version 1.0
-	@return T    ·µ»ØÀàĞÍ
+	@return T    è¿”å›ç±»å‹
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T getRequestAttribute(String key){
@@ -125,22 +125,22 @@ public final class ServletHelper {
 	}
 	
 	/**
-	@Description: ´ÓRequestÖĞÒÆ³ıÊôĞÔ
-	@param @param key    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:32:05 
+	@Description: ä»Requestä¸­ç§»é™¤å±æ€§
+	@param @param key    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:32:05 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void remoteRequestAttribute(String key){
 		getRequest().removeAttribute(key);
 	}
 	
 	/**
-	@Description: ·¢ÉúÖØ¶¨ÏòÏìÓ¦
-	@param @param location    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:35:53 
+	@Description: å‘ç”Ÿé‡å®šå‘å“åº”
+	@param @param location    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:35:53 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void sendRedirect(String location){
 		try{
@@ -151,24 +151,24 @@ public final class ServletHelper {
 	}
 	
 	/**
-	@Description: ½«ÊôĞÔ·ÅÈëSessionÖĞ
+	@Description: å°†å±æ€§æ”¾å…¥Sessionä¸­
 	@param @param key
-	@param @param value    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:37:02 
+	@param @param value    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:37:02 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void setSessionAttribute(String key,Object value){
 		getSession().setAttribute(key, value);
 	}
 	
 	/**
-	@Description: ´ÓSessionÖĞ»ñÈ¡ÊôĞÔ
+	@Description: ä»Sessionä¸­è·å–å±æ€§
 	@param @param key
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:39:47 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:39:47 
 	@version 1.0
-	@return T    ·µ»ØÀàĞÍ
+	@return T    è¿”å›ç±»å‹
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T getSessionAttribute(String key){
@@ -176,22 +176,22 @@ public final class ServletHelper {
 	}
 	
 	/**
-	@Description: ´ÓSessionÖĞÒÆ³ıÊôĞÔ
-	@param @param key    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:41:14 
+	@Description: ä»Sessionä¸­ç§»é™¤å±æ€§
+	@param @param key    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:41:14 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void removeSessionAttribute(String key){
 		getRequest().getSession().removeAttribute(key);
 	}
 	
 	/**
-	@Description: ÊÇSessionÊ§Ğ§
-	@param     Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÉÏÎç9:41:54 
+	@Description: æ˜¯Sessionå¤±æ•ˆ
+	@param     è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸Šåˆ9:41:54 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void InvalidateSession(){
 		getRequest().getSession().invalidate();

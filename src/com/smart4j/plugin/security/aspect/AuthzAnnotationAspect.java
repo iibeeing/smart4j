@@ -15,9 +15,9 @@ import com.smart4j.plugin.security.exception.AuthzException;
 
 /**
 @ClassName: AuthzAnnotationAspect
-@Description: ÊÚÈ¨×¢½â½çÃæ
+@Description: æˆæƒæ³¨è§£ç•Œé¢
 @author BEE 
-@date 2016-4-12 ÉÏÎç11:00:35
+@date 2016-4-12 ä¸Šåˆ11:00:35
  */
 @Aspect(Controller.class)
 public class AuthzAnnotationAspect extends AspectProxy {
@@ -28,10 +28,10 @@ public class AuthzAnnotationAspect extends AspectProxy {
 	public void before(Class<?> cls, Method method, Object[] params)
 			throws Throwable {
 		
-		//´ÓÄ¿±êÀàÓëÄ¿±ê·½·¨ÖĞ»ñÈ¡ÏàÓ¦µÄ×¢½â
+		//ä»ç›®æ ‡ç±»ä¸ç›®æ ‡æ–¹æ³•ä¸­è·å–ç›¸åº”çš„æ³¨è§£
 		Annotation annotation = getAnnotation(cls,method);
 		if(annotation != null){
-			//ÅĞ¶ÏÊÚÈ¨×¢½âµÄÀàĞÍ
+			//åˆ¤æ–­æˆæƒæ³¨è§£çš„ç±»å‹
 			Class<?> annotationType = annotation.annotationType();
 			if(annotationType.equals("User.class")){
 				handleUser();
@@ -41,19 +41,19 @@ public class AuthzAnnotationAspect extends AspectProxy {
 	
 	@SuppressWarnings("unchecked")
 	private Annotation getAnnotation(Class<?> cls,Method method){
-		//±éÀúËùÓĞµÄÊÚÈ¨×¢½â
+		//éå†æ‰€æœ‰çš„æˆæƒæ³¨è§£
 		for(Class<? extends Annotation> annotationClass : ANNOTATION_CLASS_ARRAY){
-			//Ê×ÏÈÅĞ¶ÏÄ¿±ê·½·¨ÉÏÊÇ·ñ´øÓĞÊÚÈ¨×¢½â
+			//é¦–å…ˆåˆ¤æ–­ç›®æ ‡æ–¹æ³•ä¸Šæ˜¯å¦å¸¦æœ‰æˆæƒæ³¨è§£
 			if(method.isAnnotationPresent(annotationClass)){
 				return method.getAnnotation(annotationClass);
 			}
 			
-			//È»ºóÅĞ¶ÏÄ¿±êÀàÉÏÊÇ·ñ´øÓĞÊÚÈ¨×¢½â
+			//ç„¶ååˆ¤æ–­ç›®æ ‡ç±»ä¸Šæ˜¯å¦å¸¦æœ‰æˆæƒæ³¨è§£
 			if(cls.isAnnotationPresent(annotationClass)){
 				return cls.getAnnotation(annotationClass);
 			}
 		}
-		//ÈôÄ¿±ê·½·¨ÉÏÓëÄ¿±êÀàÉÏ¾ùÎ´´øÓĞÊÚÈ¨×¢½â£¬Ôò·µ»Ø¿Õ¶ÔÏó
+		//è‹¥ç›®æ ‡æ–¹æ³•ä¸Šä¸ç›®æ ‡ç±»ä¸Šå‡æœªå¸¦æœ‰æˆæƒæ³¨è§£ï¼Œåˆ™è¿”å›ç©ºå¯¹è±¡
 		return null;
 	}
 	
@@ -61,7 +61,7 @@ public class AuthzAnnotationAspect extends AspectProxy {
 		Subject currentUser = SecurityUtils.getSubject();
 		PrincipalCollection principals = currentUser.getPrincipals();
 		if(principals ==  null || principals.isEmpty()){
-			throw new AuthzException("µ±Ç°ÓÃ»§ÉĞÎ´µÇÂ¼");
+			throw new AuthzException("å½“å‰ç”¨æˆ·å°šæœªç™»å½•");
 		}
 	}
 }

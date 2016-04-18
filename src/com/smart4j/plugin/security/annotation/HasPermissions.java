@@ -7,15 +7,15 @@ import java.lang.annotation.Target;
 
 /**
  * @ClassName: HasPermissions
- * @Description: ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÓµÓĞÄ³ÖÖÈ¨ÏŞ
+ * @Description: åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æŸç§æƒé™
  * @author BEE
- * @date 2016-4-14 ÏÂÎç5:32:47
+ * @date 2016-4-14 ä¸‹åˆ5:32:47
  */
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HasPermissions {
 	/**
-	 * È¨ÏŞ×Ö·û´®
+	 * æƒé™å­—ç¬¦ä¸²
 	 */
 	String value();
 }

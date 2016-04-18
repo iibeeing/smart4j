@@ -11,22 +11,22 @@ import com.smart4j.plugin.security.exception.AuthcException;
 
 /**
 @ClassName: SecurityHelper
-@Description: SecurityÖúÊÖÀà
+@Description: SecurityåŠ©æ‰‹ç±»
 @author BEE 
-@date 2016-4-7 ÏÂÎç4:34:47
+@date 2016-4-7 ä¸‹åˆ4:34:47
  */
 public final class SecurityHelper {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityHelper.class);
 
 	/**
-	@Description: µÇÂ¼
+	@Description: ç™»å½•
 	@param @param username
 	@param @param password
-	@param @throws AuthenticationException    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç4:35:28 
+	@param @throws AuthenticationException    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ4:35:28 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void login(String username,String password)throws AuthcException{
 		Subject currentUser = SecurityUtils.getSubject();
@@ -42,11 +42,11 @@ public final class SecurityHelper {
 	}
 	
 	/**
-	@Description: ×¢Ïú
-	@param     Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-7 ÏÂÎç4:35:49 
+	@Description: æ³¨é”€
+	@param     è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-7 ä¸‹åˆ4:35:49 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void logout(){
 		Subject currentUser = SecurityUtils.getSubject();

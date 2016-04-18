@@ -2,9 +2,9 @@ package com.smart4j.plugin.security.exception;
 
 /**
 @ClassName: AuthzException
-@Description: 授权异常（当权限无效时抛出）
+@Description: 鎺堟潈寮傚父锛堝綋鏉冮檺鏃犳晥鏃舵姏鍑猴級
 @author BEE 
-@date 2016-4-7 下午4:39:51
+@date 2016-4-7 涓嬪崍4:39:51
  */
 @SuppressWarnings("serial")
 public class AuthzException extends Exception {

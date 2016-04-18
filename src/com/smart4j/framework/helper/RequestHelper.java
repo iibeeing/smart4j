@@ -16,20 +16,20 @@ import com.smart4j.framework.util.StreamUtil;
 
 /**
 @ClassName: RequestHelper
-@Description: ÇëÇóÖúÊÖÀà
+@Description: è¯·æ±‚åŠ©æ‰‹ç±»
 @author BEE 
-@date 2016-4-6 ÉÏÎç10:21:20
+@date 2016-4-6 ä¸Šåˆ10:21:20
  */
 public final class RequestHelper {
 
 	/**
-	@Description: ´´½¨ÇëÇó¶ÔÏó
+	@Description: åˆ›å»ºè¯·æ±‚å¯¹è±¡
 	@param @param request
 	@param @return
-	@param @throws IOException    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç10:24:27 
+	@param @throws IOException    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ10:24:27 
 	@version 1.0
-	@return Param    ·µ»ØÀàĞÍ
+	@return Param    è¿”å›ç±»å‹
 	 */
 	public static Param createParam(HttpServletRequest request)throws IOException{
 		List<FormParam> formParamList = new ArrayList<FormParam>();

@@ -30,7 +30,7 @@ public class DefaultDataSourceFactory extends AbstractDataSourceFactory<BasicDat
 
     @Override
     public void setAdvancedConfig(BasicDataSource ds) {
-        // ½â¾ö java.sql.SQLException: Already closed. µÄÎÊÌâ£¨Á¬½Ó³Ø»á×Ô¶¯¹Ø±Õ³¤Ê±¼äÃ»ÓÐÊ¹ÓÃµÄÁ¬½Ó£©
+        // è§£å†³ java.sql.SQLException: Already closed. çš„é—®é¢˜ï¼ˆè¿žæŽ¥æ± ä¼šè‡ªåŠ¨å…³é—­é•¿æ—¶é—´æ²¡æœ‰ä½¿ç”¨çš„è¿žæŽ¥ï¼‰
         ds.setValidationQuery("select 1 from dual");
     }
 }

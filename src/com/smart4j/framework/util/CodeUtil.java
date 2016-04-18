@@ -10,7 +10,7 @@ public final class CodeUtil {
 	private static final Logger LOGGER = LoggerFactory.getLogger(StreamUtil.class);
 	
 	/**
-	 * ½«URL±àÂë
+	 * å°†URLç¼–ç 
 	 */
 	public static String encodeURL(String source){
 		String target;
@@ -24,7 +24,7 @@ public final class CodeUtil {
 	}
 	
 	/**
-	 * ½«URL½âÂë
+	 * å°†URLè§£ç 
 	 */
 	public static String decodeURL(String source){
 		String target;

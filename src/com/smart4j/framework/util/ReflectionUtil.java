@@ -10,7 +10,7 @@ public final class ReflectionUtil {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReflectionUtil.class);
 
 	/**
-	 * ´´½¨ÊµÀı
+	 * åˆ›å»ºå®ä¾‹
 	 */
 	public static Object newInstance(Class<?> cls) {
 		Object instance;
@@ -24,7 +24,7 @@ public final class ReflectionUtil {
 	}
 
 	/**
-	 * µ÷ÓÃ·½·¨
+	 * è°ƒç”¨æ–¹æ³•
 	 */
 	public static Object invokedMethod(Object obj, Method method,Object... args) {
 		Object result;
@@ -39,7 +39,7 @@ public final class ReflectionUtil {
 	}
 	
 	/**
-	 * ÉèÖÃ³ÉÔ±±äÁ¿µÄÖµ
+	 * è®¾ç½®æˆå‘˜å˜é‡çš„å€¼
 	 */
 	public static void setField(Object obj,Field field,Object value){
 		try{

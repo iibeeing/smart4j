@@ -9,20 +9,20 @@ import net.sf.cglib.proxy.MethodProxy;
 
 /**
 * @ClassName: ProxyManager
-* @Description: ´úÀí¸¨ÖúÀà
+* @Description: ä»£ç†è¾…åŠ©ç±»
 * @author BEE 
-* @date 2016-3-31 ÏÂÎç5:17:10
+* @date 2016-3-31 ä¸‹åˆ5:17:10
  */
 public class ProxyManager {
 
 	/**
-	@Description: ´´½¨´úÀí£¨¶¯Ì¬´´½¨´úÀí£©£¬Ò»¸öÄ¿±êÀà¿ÉÒÔ±»ÇĞÃæÀàµÄ²Ù×÷Ö´ĞĞ£¨Èç¹ûÊÇÁĞ±í£¬Ôò°´Ë³ĞòÒ»¸öÒ»¸öÖ´ĞĞ£©
-	@param @param targetClass ±»ÇĞÃæ£¬±»´úÀíÀà
-	@param @param proxyList ÇĞÃæÀàÁĞ±í¡¢´úÀíÀàÁĞ±í
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç3:22:11 
+	@Description: åˆ›å»ºä»£ç†ï¼ˆåŠ¨æ€åˆ›å»ºä»£ç†ï¼‰ï¼Œä¸€ä¸ªç›®æ ‡ç±»å¯ä»¥è¢«åˆ‡é¢ç±»çš„æ“ä½œæ‰§è¡Œï¼ˆå¦‚æœæ˜¯åˆ—è¡¨ï¼Œåˆ™æŒ‰é¡ºåºä¸€ä¸ªä¸€ä¸ªæ‰§è¡Œï¼‰
+	@param @param targetClass è¢«åˆ‡é¢ï¼Œè¢«ä»£ç†ç±»
+	@param @param proxyList åˆ‡é¢ç±»åˆ—è¡¨ã€ä»£ç†ç±»åˆ—è¡¨
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ3:22:11 
 	@version 1.0
-	@return T    ·µ»ØÀàĞÍ
+	@return T    è¿”å›ç±»å‹
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T createProxy(final Class<?> targetClass,final List<Proxy> proxyList) {

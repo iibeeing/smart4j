@@ -7,16 +7,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @ClassName: JsonUtil
- * @Description: Json ¹¤¾ßÀà
+ * @Description: Json å·¥å…·ç±»
  * @author BEE
- * @date 2016-3-28 ÏÂÎç5:09:35
+ * @date 2016-3-28 ä¸‹åˆ5:09:35
  */
 public final class JsonUtil {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 	
 	/**
-	 * ½«POJO ×ªÎª JSON
+	 * å°†POJO è½¬ä¸º JSON
 	 */
 	public static <T> String toJson(T obj){
 		String json;
@@ -30,7 +30,7 @@ public final class JsonUtil {
 	}
 	
 	/**
-	 * ½«JSON×ªÎªPOJO
+	 * å°†JSONè½¬ä¸ºPOJO
 	 */
 	public static <T> T fromJson(String json,Class<T> type){
 		T pojo;

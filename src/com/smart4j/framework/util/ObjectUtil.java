@@ -11,16 +11,16 @@ import org.slf4j.LoggerFactory;
 
 /**
 @ClassName: ObjectUtil
-@Description: ¶ÔÏó²Ù×÷¹¤¾ßÀà
+@Description: å¯¹è±¡æ“ä½œå·¥å…·ç±»
 @author BEE 
-@date 2016-4-13 ÏÂÎç2:48:46
+@date 2016-4-13 ä¸‹åˆ2:48:46
  */
 public class ObjectUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(ObjectUtil.class);
 
     /**
-     * ÉèÖÃ³ÉÔ±±äÁ¿
+     * è®¾ç½®æˆå‘˜å˜é‡
      */
     public static void setField(Object obj, String fieldName, Object fieldValue) {
         try {
@@ -28,13 +28,13 @@ public class ObjectUtil {
                 PropertyUtils.setProperty(obj, fieldName, fieldValue);
             }
         } catch (Exception e) {
-            logger.error("ÉèÖÃ³ÉÔ±±äÁ¿³ö´í£¡", e);
+            logger.error("è®¾ç½®æˆå‘˜å˜é‡å‡ºé”™ï¼", e);
             throw new RuntimeException(e);
         }
     }
 
     /**
-     * »ñÈ¡³ÉÔ±±äÁ¿
+     * è·å–æˆå‘˜å˜é‡
      */
     public static Object getFieldValue(Object obj, String fieldName) {
         Object propertyValue = null;
@@ -43,32 +43,32 @@ public class ObjectUtil {
                 propertyValue = PropertyUtils.getProperty(obj, fieldName);
             }
         } catch (Exception e) {
-            logger.error("»ñÈ¡³ÉÔ±±äÁ¿³ö´í£¡", e);
+            logger.error("è·å–æˆå‘˜å˜é‡å‡ºé”™ï¼", e);
             throw new RuntimeException(e);
         }
         return propertyValue;
     }
 
     /**
-     * ¸´ÖÆËùÓĞ³ÉÔ±±äÁ¿
+     * å¤åˆ¶æ‰€æœ‰æˆå‘˜å˜é‡
      */
     public static void copyFields(Object source, Object target) {
         try {
             for (Field field : source.getClass().getDeclaredFields()) {
-                // Èô²»Îª static ³ÉÔ±±äÁ¿£¬Ôò½øĞĞ¸´ÖÆ²Ù×÷
+                // è‹¥ä¸ä¸º static æˆå‘˜å˜é‡ï¼Œåˆ™è¿›è¡Œå¤åˆ¶æ“ä½œ
                 if (!Modifier.isStatic(field.getModifiers())) {
-                    field.setAccessible(true); // ¿É²Ù×÷Ë½ÓĞ³ÉÔ±±äÁ¿
+                    field.setAccessible(true); // å¯æ“ä½œç§æœ‰æˆå‘˜å˜é‡
                     field.set(target, field.get(source));
                 }
             }
         } catch (Exception e) {
-            logger.error("¸´ÖÆ³ÉÔ±±äÁ¿³ö´í£¡", e);
+            logger.error("å¤åˆ¶æˆå‘˜å˜é‡å‡ºé”™ï¼", e);
             throw new RuntimeException(e);
         }
     }
 
     /**
-     * Í¨¹ı·´Éä´´½¨ÊµÀı
+     * é€šè¿‡åå°„åˆ›å»ºå®ä¾‹
      */
     @SuppressWarnings("unchecked")
     public static <T> T newInstance(String className) {
@@ -77,21 +77,21 @@ public class ObjectUtil {
             Class<?> commandClass = ClassUtil.loadClass(className);
             instance = (T) commandClass.newInstance();
         } catch (Exception e) {
-            logger.error("´´½¨ÊµÀı³ö´í£¡", e);
+            logger.error("åˆ›å»ºå®ä¾‹å‡ºé”™ï¼", e);
             throw new RuntimeException(e);
         }
         return instance;
     }
 
     /**
-     * »ñÈ¡¶ÔÏóµÄ×Ö¶ÎÓ³Éä£¨×Ö¶ÎÃû => ×Ö¶ÎÖµ£©£¬ºöÂÔ static ×Ö¶Î
+     * è·å–å¯¹è±¡çš„å­—æ®µæ˜ å°„ï¼ˆå­—æ®µå => å­—æ®µå€¼ï¼‰ï¼Œå¿½ç•¥ static å­—æ®µ
      */
     public static Map<String, Object> getFieldMap(Object obj) {
         return getFieldMap(obj, true);
     }
 
     /**
-     * »ñÈ¡¶ÔÏóµÄ×Ö¶ÎÓ³Éä£¨×Ö¶ÎÃû => ×Ö¶ÎÖµ£©
+     * è·å–å¯¹è±¡çš„å­—æ®µæ˜ å°„ï¼ˆå­—æ®µå => å­—æ®µå€¼ï¼‰
      */
     public static Map<String, Object> getFieldMap(Object obj, boolean isStaticIgnored) {
         Map<String, Object> fieldMap = new LinkedHashMap<String, Object>();

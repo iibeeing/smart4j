@@ -7,9 +7,9 @@ import com.smart4j.plugin.security.password.Md5CredentialMatcher;
 
 /**
 @ClassName: SmartJdbcRealm
-@Description: 基于Smart的JDBC Realm（需要提供相关smart.plugin.security.jdbc.*配置项）
+@Description: 鍩轰簬Smart鐨凧DBC Realm锛堥渶瑕佹彁渚涚浉鍏硈mart.plugin.security.jdbc.*閰嶇疆椤癸級
 @author BEE 
-@date 2016-4-11 上午11:38:51
+@date 2016-4-11 涓婂崍11:38:51
  */
 public class SmartJdbcRealm extends JdbcRealm {
 

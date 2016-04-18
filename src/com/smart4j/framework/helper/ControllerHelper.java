@@ -13,38 +13,38 @@ import com.smart4j.framework.util.ArrayUtil;
 
 /**
 * @ClassName: ControllerHelper
-* @Description: ½âÎöController£¨¿ØÖÆÆ÷£©
+* @Description: è§£æControllerï¼ˆæ§åˆ¶å™¨ï¼‰
 * @author BEE 
-* @date 2016-3-30 ÉÏÎç9:25:31
+* @date 2016-3-30 ä¸Šåˆ9:25:31
  */
 public final class ControllerHelper {
-	//ÓÃÓÚ´æ·ÅÇëÇóÓë´¦ÀíÆ÷Ó³Éä¹ØÏµ£¨¼ò³ÆAction Map£©
+	//ç”¨äºå­˜æ”¾è¯·æ±‚ä¸å¤„ç†å™¨æ˜ å°„å…³ç³»ï¼ˆç®€ç§°Action Mapï¼‰
 	private static final Map<Request,Handler> ACTION_MAP = new HashMap<Request,Handler>();
 	static{
-		//»ñÈ¡ËùÓĞµÄControllerÀà
+		//è·å–æ‰€æœ‰çš„Controllerç±»
 		Set<Class<?>> controllerClassSet = ClassHelper.getControllerClassSet();
 		if(CollectionUtil.isNotEmpty(controllerClassSet)){
 			for(Class<?> controllerClass : controllerClassSet){
-				//»ñÈ¡ControllerÀàÖĞ¶¨ÒåµÄ·½·¨
+				//è·å–Controllerç±»ä¸­å®šä¹‰çš„æ–¹æ³•
 				Method[] methods = controllerClass.getDeclaredMethods();
 				if(ArrayUtil.isNotEmpty(methods)){
-					//±éÀúÕâĞ©ControllerÖĞµÄ·½·¨
+					//éå†è¿™äº›Controllerä¸­çš„æ–¹æ³•
 					for(Method method : methods){
-						//ÅĞ¶Ïµ±Ç°·½·¨ÊÇ·ñ´øÓĞAction ×¢½â
+						//åˆ¤æ–­å½“å‰æ–¹æ³•æ˜¯å¦å¸¦æœ‰Action æ³¨è§£
 						if(method.isAnnotationPresent(Action.class)){
-							//´ÓAction×¢½âÖĞ»ñÈ¡URL Ó³Éä¹æÔò
+							//ä»Actionæ³¨è§£ä¸­è·å–URL æ˜ å°„è§„åˆ™
 							Action action = method.getAnnotation(Action.class);
 							String mapping = action.value();
-							//ÑéÖ¤URLÓ³Éä¹æÔò
+							//éªŒè¯URLæ˜ å°„è§„åˆ™
 							if(mapping.matches("\\w+:/\\w*")){
 								String[] array = mapping.split(":");
 								if(ArrayUtil.isNotEmpty(array) && array.length == 2){
-									//»ñÈ¡ÇëÇó·½·¨ÓëÇëÇóÂ·¾¶
+									//è·å–è¯·æ±‚æ–¹æ³•ä¸è¯·æ±‚è·¯å¾„
 									String requestMethod = array[0];
 									String requestPath = array[1];
 									Request request = new Request(requestMethod, requestPath);
 									Handler handler = new Handler(controllerClass, method);
-									//³õÊ¼»¯Action Map
+									//åˆå§‹åŒ–Action Map
 									ACTION_MAP.put(request, handler);
 								}
 							}
@@ -56,7 +56,7 @@ public final class ControllerHelper {
 	}
 	
 	/**
-	 * »ñÈ¡Handler
+	 * è·å–Handler
 	 */
 	public static Handler getHandler(String requestMethod,String requestPath){
 		Request request = new Request(requestMethod, requestPath);

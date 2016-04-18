@@ -6,9 +6,9 @@ import com.smart4j.framework.ds.DataSourceFactory;
 
 /**
  * @ClassName: AbstractDataSourceFactory
- * @Description: ³éÏóÊı¾İÔ´¹¤³§
+ * @Description: æŠ½è±¡æ•°æ®æºå·¥å‚
  * @author BEE
- * @date 2016-4-13 ÏÂÎç2:51:12
+ * @date 2016-4-13 ä¸‹åˆ2:51:12
  */
 public abstract class AbstractDataSourceFactory<T extends DataSource>implements DataSourceFactory {
 	protected final String driver = ConfigHelper
@@ -22,14 +22,14 @@ public abstract class AbstractDataSourceFactory<T extends DataSource>implements 
 
 	@Override
 	public final T getDataSource() {
-		// ´´½¨Êı¾İÔ´¶ÔÏó
+		// åˆ›å»ºæ•°æ®æºå¯¹è±¡
 		T ds = createDataSource();
-		// ÉèÖÃ»ù´¡ÊôĞÔ
+		// è®¾ç½®åŸºç¡€å±æ€§
 		setDriver(ds, driver);
 		setUrl(ds, url);
 		setUsername(ds, username);
 		setPassword(ds, password);
-		// ÉèÖÃ¸ß¼¶ÊôĞÔ
+		// è®¾ç½®é«˜çº§å±æ€§
 		setAdvancedConfig(ds);
 		return ds;
 	}

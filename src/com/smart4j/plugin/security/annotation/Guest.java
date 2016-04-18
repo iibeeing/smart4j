@@ -7,9 +7,9 @@ import java.lang.annotation.Target;
 
 /**
 @ClassName: Guest
-@Description: ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÎ´µÇÂ¼£¨°üÀ¨£ºÎ´ÈÏÖ¤ »ò Î´¼Ç×¡£¬¼´¡°·Ã¿Í¡±Éí·İ£©
+@Description: åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦æœªç™»å½•ï¼ˆåŒ…æ‹¬ï¼šæœªè®¤è¯ æˆ– æœªè®°ä½ï¼Œå³â€œè®¿å®¢â€èº«ä»½ï¼‰
 @author BEE 
-@date 2016-4-14 ÏÂÎç5:30:12
+@date 2016-4-14 ä¸‹åˆ5:30:12
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME) 

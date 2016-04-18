@@ -10,33 +10,33 @@ import com.smart4j.framework.util.ReflectionUtil;
 
 /**
 * @ClassName: IocHelper
-* @Description: ½âÎöInject£¨×¢Èë£©
+* @Description: è§£æInjectï¼ˆæ³¨å…¥ï¼‰
 * @author BEE 
-* @date 2016-3-30 ÉÏÎç9:24:36
+* @date 2016-3-30 ä¸Šåˆ9:24:36
  */
 public final class IocHelper {
 	static{
-		//»ñÈ¡ËùÓĞµÄBeanÀàÓëBeanÊµÀıÖ®¼äµÄÓ³Éä¹ØÏµ£¨¼ò³Æ Bean Map£©
+		//è·å–æ‰€æœ‰çš„Beanç±»ä¸Beanå®ä¾‹ä¹‹é—´çš„æ˜ å°„å…³ç³»ï¼ˆç®€ç§° Bean Mapï¼‰
 		Map<Class<?>,Object> beanMap = BeanHelper.getBeanMap();
 		//System.out.println("beanMap size --------- > " + beanMap.size());
 		if(CollectionUtil.isNotEmpty(beanMap)){
-			//±éÀúBean Map
+			//éå†Bean Map
 			for(Map.Entry<Class<?>, Object>beanEntry : beanMap.entrySet()){
-				//´ÓBeanMap ÖĞ»ñÈ¡BeanÀàÓëBeanÊµÀı
+				//ä»BeanMap ä¸­è·å–Beanç±»ä¸Beanå®ä¾‹
 				Class<?> beanClass = beanEntry.getKey();
 				Object beanInstance = beanEntry.getValue();
-				//»ñÈ¡Bean Àà¶¨ÒåµÄËùÓĞ³ÉÔ±±äÁ¿£¨¼ò³ÆBean Field£©
+				//è·å–Bean ç±»å®šä¹‰çš„æ‰€æœ‰æˆå‘˜å˜é‡ï¼ˆç®€ç§°Bean Fieldï¼‰
 				Field[] beanFields = beanClass.getDeclaredFields();
 				if(ArrayUtil.isNotEmpty(beanFields)){
-					//±éÀúBean Field
+					//éå†Bean Field
 					for(Field beanField : beanFields){
-						//ÅĞ¶Ïµ±Ç°Bean Field ÊÇ·ñ ´øÓĞ Inject ×¢½â
+						//åˆ¤æ–­å½“å‰Bean Field æ˜¯å¦ å¸¦æœ‰ Inject æ³¨è§£
 						if(beanField.isAnnotationPresent(Inject.class)){
-							//ÔÚBean MapÖĞ»ñÈ¡Bean Field¶ÔÓ¦µÄÊµÀı
+							//åœ¨Bean Mapä¸­è·å–Bean Fieldå¯¹åº”çš„å®ä¾‹
 							Class<?> beanFieldClass = beanField.getType();
 							Object beanFieldInstance = beanMap.get(beanFieldClass);
 							if(beanFieldInstance != null){
-								//Í¨¹ı·´Éä³õÊ¼»¯BeanFieldµÄÖµ ½«Ä³ÊôĞÔÖµÉèÖÃµ½¶ÔÓ¦µÄÊµÀı»¯¶ÔÏóÖĞ
+								//é€šè¿‡åå°„åˆå§‹åŒ–BeanFieldçš„å€¼ å°†æŸå±æ€§å€¼è®¾ç½®åˆ°å¯¹åº”çš„å®ä¾‹åŒ–å¯¹è±¡ä¸­
 								ReflectionUtil.setField(beanInstance, beanField, beanFieldInstance);
 							}
 						}

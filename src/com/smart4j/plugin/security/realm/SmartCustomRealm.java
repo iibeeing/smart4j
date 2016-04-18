@@ -23,9 +23,9 @@ import sun.security.provider.MD4;
 
 /**
 @ClassName: SmartCustomRealm
-@Description: »ùÓÚSmartµÄ×Ô¶¨ÒåRealm£¨ĞèÒªÊµÏÖSmartSecurity½Ó¿Ú£©
+@Description: åŸºäºSmartçš„è‡ªå®šä¹‰Realmï¼ˆéœ€è¦å®ç°SmartSecurityæ¥å£ï¼‰
 @author BEE 
-@date 2016-4-11 ÏÂÎç2:04:40
+@date 2016-4-11 ä¸‹åˆ2:04:40
  */
 public class SmartCustomRealm extends AuthorizingRealm {
 
@@ -42,11 +42,11 @@ public class SmartCustomRealm extends AuthorizingRealm {
 		if(principals == null){
 			throw new AuthorizationException("parameter principals is null");
 		}
-		//»ñÈ¡ÒÑÈÏÖ¤ÓÃ»§µÄÓÃ»§Ãû
+		//è·å–å·²è®¤è¯ç”¨æˆ·çš„ç”¨æˆ·å
 		String username = (String)super.getAvailablePrincipal(principals);
-		//Í¨¹ıSmartSecurity½Ó¿Ú²¢¸ù¾İÓÃ»§Ãû»ñÈ¡½ÇÉ«Ãû¼¯ºÏ
+		//é€šè¿‡SmartSecurityæ¥å£å¹¶æ ¹æ®ç”¨æˆ·åè·å–è§’è‰²åé›†åˆ
 		Set<String> roleNameSet = smartSecurity.getRoleNameSet(username);
-		//Í¨¹ıSmartSecurity½Ó¿Ú²¢¸ù¾İ½ÇÉ«Ãû»ñÈ¡ÓëÆä¶ÔÓ¦µÄÈ¨ÏŞÃû¼¯ºÏ
+		//é€šè¿‡SmartSecurityæ¥å£å¹¶æ ¹æ®è§’è‰²åè·å–ä¸å…¶å¯¹åº”çš„æƒé™åé›†åˆ
 		Set<String> permissionNameSet = new HashSet<String>();
 		if(roleNameSet != null && roleNameSet.size() > 0){
 			for(String roleName : roleNameSet){
@@ -54,7 +54,7 @@ public class SmartCustomRealm extends AuthorizingRealm {
 				permissionNameSet.addAll(currentPermissionNameSet);
 			}
 		}
-		//½«½ÇÉ«Ãû¼¯ºÏÓëÈ¨ÏŞÃû¼¯ºÏ·ÅÈëAuthorizationInfo¶ÔÏóÖĞ£¬±ãÓÚºóĞøµÄÊÚÈ¨²Ù×÷
+		//å°†è§’è‰²åé›†åˆä¸æƒé™åé›†åˆæ”¾å…¥AuthorizationInfoå¯¹è±¡ä¸­ï¼Œä¾¿äºåç»­çš„æˆæƒæ“ä½œ
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 		authorizationInfo.setRoles(roleNameSet);
 		authorizationInfo.setStringPermissions(permissionNameSet);
@@ -67,11 +67,11 @@ public class SmartCustomRealm extends AuthorizingRealm {
 		if(token == null){
 			throw new AuthenticationException("parameter token is null");
 		}
-		//Í¨¹ıAuthenticationToken¶ÔÏó»ñÈ¡´Ó±íµ¥ÖĞÌá½»¹ıÀ´µÄÓÃ»§Ãû
+		//é€šè¿‡AuthenticationTokenå¯¹è±¡è·å–ä»è¡¨å•ä¸­æäº¤è¿‡æ¥çš„ç”¨æˆ·å
 		String username = ((UsernamePasswordToken) token).getUsername();
-		//Í¨¹ıSmartSecurity½Ó¿Ú²¢¸ù¾İÓÃ»§Ãû»ñÈ¡Êı¾İ¿âÖĞ´æ·ÅµÄÃÜÂë
+		//é€šè¿‡SmartSecurityæ¥å£å¹¶æ ¹æ®ç”¨æˆ·åè·å–æ•°æ®åº“ä¸­å­˜æ”¾çš„å¯†ç 
 		String password = smartSecurity.getPassword(username);
-		//½«ÓÃ»§ÃûºÍÃÜÂë·ÅÈëAuthenticationInfo¶ÔÏóÖĞ£¬±ãÓÚºóĞøµÄÈÏÖ¤²Ù×÷
+		//å°†ç”¨æˆ·åå’Œå¯†ç æ”¾å…¥AuthenticationInfoå¯¹è±¡ä¸­ï¼Œä¾¿äºåç»­çš„è®¤è¯æ“ä½œ
 		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo();
 		authenticationInfo.setPrincipals(new SimplePrincipalCollection(username, super.getName()));
 		authenticationInfo.setCredentials(password);

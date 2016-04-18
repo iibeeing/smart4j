@@ -17,21 +17,21 @@ import com.smart4j.cc.util.StringUtil;
 
 /**
 * @ClassName: ClassUtil
-* @Description: Àà¹¤¾ß
+* @Description: ç±»å·¥å…·
 * @author BEE 
-* @date 2016-3-28 ÉÏÎç11:02:08
+* @date 2016-3-28 ä¸Šåˆ11:02:08
  */
 public final class ClassUtil {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
 	/**
-	 * »ñÈ¡Àà¼ÓÔØÆ÷
+	 * è·å–ç±»åŠ è½½å™¨
 	 */
 	public static ClassLoader getClassLoader(){
 		return Thread.currentThread().getContextClassLoader();
 	}
 	
 	/**
-	 * ¼ÓÔØÀà£¬ÎªÁËÌá¸ß¼ÓÔØĞÔÄÜ£¬¿É½«isInitializedÉèÎªfalse
+	 * åŠ è½½ç±»ï¼Œä¸ºäº†æé«˜åŠ è½½æ€§èƒ½ï¼Œå¯å°†isInitializedè®¾ä¸ºfalse
 	 */
 	public static Class<?> loadClass(String className,boolean isInitialized){
 		Class<?> cls;
@@ -45,14 +45,14 @@ public final class ClassUtil {
 	}
 	
 	/**
-	 * ¼ÓÔØÀà£¬ÎªÁËÌá¸ß¼ÓÔØĞÔÄÜ£¬¿É½«isInitializedÉèÎªfalse
-	 * £¬Ôò²»»á¼ÓÔØ¸ÃÀàµÄ¾²Ì¬¿é£¬Ê¹µÃBeanÃ»ÓĞ±»³õÊ¼»¯£¬Èç¹ûÊ¹ÓÃÔò±¨¿ÕÖ¸Õë´íÎó¡£
-	 * ËùÒÔ£¬Èç¹ûÒªÊ¹ÓÃÔòisInitializedÉèÎªtrue
+	 * åŠ è½½ç±»ï¼Œä¸ºäº†æé«˜åŠ è½½æ€§èƒ½ï¼Œå¯å°†isInitializedè®¾ä¸ºfalse
+	 * ï¼Œåˆ™ä¸ä¼šåŠ è½½è¯¥ç±»çš„é™æ€å—ï¼Œä½¿å¾—Beanæ²¡æœ‰è¢«åˆå§‹åŒ–ï¼Œå¦‚æœä½¿ç”¨åˆ™æŠ¥ç©ºæŒ‡é’ˆé”™è¯¯ã€‚
+	 * æ‰€ä»¥ï¼Œå¦‚æœè¦ä½¿ç”¨åˆ™isInitializedè®¾ä¸ºtrue
 	 */
 	public static Class<?> loadClass(String className){
 		Class<?> cls;
 		try{
-			//System.out.println(" ÕıÔÚ¼ÓÔØ --- >" + className);
+			//System.out.println(" æ­£åœ¨åŠ è½½ --- >" + className);
 			//cls = Class.forName(className,false,getClassLoader());
 			cls = Class.forName(className,true,getClassLoader());
 		}catch (Exception e) {
@@ -63,7 +63,7 @@ public final class ClassUtil {
 	}
 	
 	/**
-	 * »ñÈ¡Ö¸¶¨°üÃûÏÂµÄËùÓĞÀà
+	 * è·å–æŒ‡å®šåŒ…åä¸‹çš„æ‰€æœ‰ç±»
 	 */
 	public static Set<Class<?>> getClassSet(String packageName){
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
@@ -113,7 +113,7 @@ public final class ClassUtil {
 		File[] files = new File(packagePath).listFiles(new FileFilter() {
 			@Override
 			public boolean accept(File file) {
-				//Ö»ÒªclassÎÄ¼ş»òÕßÄ¿Â¼£¬ÆäËûÎÄ¼ş²»Òª
+				//åªè¦classæ–‡ä»¶æˆ–è€…ç›®å½•ï¼Œå…¶ä»–æ–‡ä»¶ä¸è¦
 				return (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory();
 			}
 		});

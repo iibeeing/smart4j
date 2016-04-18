@@ -16,9 +16,9 @@ import com.smart4j.plugin.security.realm.SmartJdbcRealm;
 
 /**
 @ClassName: SmartSecurityFilter
-@Description: °²È«¹ıÂËÆ÷
+@Description: å®‰å…¨è¿‡æ»¤å™¨
 @author BEE 
-@date 2016-4-11 ÉÏÎç10:46:36
+@date 2016-4-11 ä¸Šåˆ10:46:36
  */
 public class SmartSecurityFilter extends ShiroFilter {
 
@@ -27,56 +27,56 @@ public class SmartSecurityFilter extends ShiroFilter {
 		// TODO Auto-generated method stub
 		super.init();
 		WebSecurityManager webSecurityManager = super.getSecurityManager();
-		//ÉèÖÃRealm£¬¿ÉÍ¬Ê±Ö§³Ö¶à¸öRealm£¬²¢°´ÕÕÏÈºóË³ĞòÓÃ¶ººÅ·Ö¸î
+		//è®¾ç½®Realmï¼Œå¯åŒæ—¶æ”¯æŒå¤šä¸ªRealmï¼Œå¹¶æŒ‰ç…§å…ˆåé¡ºåºç”¨é€—å·åˆ†å‰²
 		setRealms(webSecurityManager);
-		//ÉèÖÃCache,ÓÃÓÚ¼õÉÙÊı¾İ¿â²éÑ¯´ÎÊı£¬½µµÍI/O·ÃÎÊ
+		//è®¾ç½®Cache,ç”¨äºå‡å°‘æ•°æ®åº“æŸ¥è¯¢æ¬¡æ•°ï¼Œé™ä½I/Oè®¿é—®
 		setCache(webSecurityManager);
 	}
 	
 	private void setRealms(WebSecurityManager webSecurityManager){
-		//¶ÁÈ¡smart.plugin.security.reamlsÅäÖÃÏî
+		//è¯»å–smart.plugin.security.reamlsé…ç½®é¡¹
 		String securityRealms = SecurityConfig.getRealms();
 		if(securityRealms != null){
-			//¸ù¾İ¶ººÅ½øĞĞ²ğ·Ö
+			//æ ¹æ®é€—å·è¿›è¡Œæ‹†åˆ†
 			String[] securityRealmArray = securityRealms.split(",");
 			if(securityRealmArray.length > 0){
-				//Ê¹Realm¾ß±¸Î¨Ò»ĞÔÓëË³ĞòĞÔ
+				//ä½¿Realmå…·å¤‡å”¯ä¸€æ€§ä¸é¡ºåºæ€§
 				Set<Realm> realms = new LinkedHashSet<>();
 				for(String securityRealm : securityRealmArray){
 					if(securityRealm.equalsIgnoreCase(SecurityConstant.REALMS_JDBC)){
-						//Ìí¼Ó»ùÓÚJDBC µÄ Realm£¬ĞèÅäÖÃÏà¹ØSQL²éÑ¯Óï¾ä
+						//æ·»åŠ åŸºäºJDBC çš„ Realmï¼Œéœ€é…ç½®ç›¸å…³SQLæŸ¥è¯¢è¯­å¥
 						addJdbcRealm(realms);
 					}else if(securityRealm.equalsIgnoreCase(SecurityConstant.REALMS_CUSTOM)){
-						//Ìí¼Ó»ùÓÚ¶¨ÖÆ»¯µÄRealm£¬ĞèÊµÏÖSmartSecurity½Ó¿Ú
+						//æ·»åŠ åŸºäºå®šåˆ¶åŒ–çš„Realmï¼Œéœ€å®ç°SmartSecurityæ¥å£
 						addCustomRealm(realms);
 					}
 				}
 				
 				RealmSecurityManager realmSecurityManager = (RealmSecurityManager) webSecurityManager;
-				realmSecurityManager.setRealms(realms);//ÉèÖÃ
+				realmSecurityManager.setRealms(realms);//è®¾ç½®
 			}
 		}
 	}
 	
 	private void addJdbcRealm(Set<Realm> realms){
-		//Ìí¼Ó×Ô¼ºÊµÏÖµÄ»ùÓÚJDBCµÄRealm
+		//æ·»åŠ è‡ªå·±å®ç°çš„åŸºäºJDBCçš„Realm
 		SmartJdbcRealm smartJdbcRealm = new SmartJdbcRealm();
 		realms.add(smartJdbcRealm);
 	}
 	
 	private void addCustomRealm(Set<Realm> realms){
-		//¶ÁÈ¡smart.plugin.security.custom.classÅäÖÃÏî
+		//è¯»å–smart.plugin.security.custom.classé…ç½®é¡¹
 		SmartSecurity smartSecurity = SecurityConfig.getSmartSecurity();
-		//Ìí¼Ó×Ô¼ºÊµÏÖµÄRealm
+		//æ·»åŠ è‡ªå·±å®ç°çš„Realm
 		SmartCustomRealm smartCustomRealm = new SmartCustomRealm(smartSecurity);
 		realms.add(smartCustomRealm);
 	}
 	
 	private void setCache(WebSecurityManager webSecurityManager){
-		//¶ÁÈ¡smart.plugin.security.cacheÅäÖÃÏî
+		//è¯»å–smart.plugin.security.cacheé…ç½®é¡¹
 		if(SecurityConfig.isCache()){
 			CachingSecurityManager cachingSecurityManager = (CachingSecurityManager)webSecurityManager;
-			//Ê¹ÓÃ»ùÓÚÄÚ´æµÄCacheManager
+			//ä½¿ç”¨åŸºäºå†…å­˜çš„CacheManager
 			CacheManager cacheManager = new MemoryConstrainedCacheManager();
 			cachingSecurityManager.setCacheManager(cacheManager);
 		}

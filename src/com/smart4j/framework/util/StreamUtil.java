@@ -12,7 +12,7 @@ public final class StreamUtil {
 	private static final Logger LOGGER = LoggerFactory.getLogger(StreamUtil.class);
 	
 	/**
-	 * ´ÓÊäÈëÁ÷ÖĞ»ñÈ¡×Ö·û´®
+	 * ä»è¾“å…¥æµä¸­è·å–å­—ç¬¦ä¸²
 	 */
 	public static String getString(InputStream is){
 		StringBuilder sb = new StringBuilder();
@@ -30,20 +30,20 @@ public final class StreamUtil {
 	}
 	
 	/**
-	@Description: ½«ÊäÈëÁ÷¸´ÖÆµ½Êä³öÁ÷
+	@Description: å°†è¾“å…¥æµå¤åˆ¶åˆ°è¾“å‡ºæµ
 	@param @param inputStream
-	@param @param outputStream    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÉÏÎç10:06:11 
+	@param @param outputStream    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸Šåˆ10:06:11 
 	@version 1.0
-	@return void    ·µ»ØÀàĞÍ
+	@return void    è¿”å›ç±»å‹
 	 */
 	public static void copyStream(InputStream inputStream,
 			OutputStream outputStream) {
 		try{
 			int length;
 			byte[] buffer = new byte[4 * 1024];
-			//½«ÊäÈëÁ÷ÖĞ×î¶à buffer.length ¸öÊı¾İ×Ö½Ú¶ÁÈë buffer Êı×é¡£
-			//µ«¶ÁÈ¡µÄ×Ö½ÚÒ²¿ÉÄÜĞ¡ÓÚ¸ÃÖµ¡£ÒÔÕûÊıĞÎÊ½·µ»ØÊµ¼Ê¶ÁÈ¡µÄ×Ö½ÚÊılength¡£ 
+			//å°†è¾“å…¥æµä¸­æœ€å¤š buffer.length ä¸ªæ•°æ®å­—èŠ‚è¯»å…¥ buffer æ•°ç»„ã€‚
+			//ä½†è¯»å–çš„å­—èŠ‚ä¹Ÿå¯èƒ½å°äºè¯¥å€¼ã€‚ä»¥æ•´æ•°å½¢å¼è¿”å›å®é™…è¯»å–çš„å­—èŠ‚æ•°lengthã€‚ 
 			while((length=inputStream.read(buffer,0,buffer.length)) != -1){
 				outputStream.write(buffer,0,length);
 			}

@@ -8,9 +8,9 @@ import net.sf.cglib.proxy.MethodProxy;
 
 /**
  * @ClassName: ProxyChain
- * @Description: ´úÀíÁ´
+ * @Description: ä»£ç†é“¾
  * @author BEE
- * @date 2016-3-31 ÉÏÎç10:24:20
+ * @date 2016-3-31 ä¸Šåˆ10:24:20
  */
 public class ProxyChain {
 	private final Class<?> targetClass;
@@ -25,7 +25,7 @@ public class ProxyChain {
 
 	/**
 	<p>Title: ProxyChain</p>
-	<p>Description:´úÀíÁ´¹¹Ôì </p>
+	<p>Description:ä»£ç†é“¾æ„é€  </p>
 	@param targetClass
 	@param targetObject
 	@param targetMethod

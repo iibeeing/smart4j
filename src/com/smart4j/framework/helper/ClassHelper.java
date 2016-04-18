@@ -11,13 +11,13 @@ import com.smart4j.framework.annotation.Service;
 
 /**
 @ClassName: ClassHelper
-@Description: Àà¼ÓÔØ¸¨ÖúÀà
+@Description: ç±»åŠ è½½è¾…åŠ©ç±»
 @author BEE 
-@date 2016-4-6 ÏÂÎç2:39:35
+@date 2016-4-6 ä¸‹åˆ2:39:35
  */
 public final class ClassHelper {
 	/**
-	 * ¶¨ÒåÀà¼¯ºÏ£¨ÓÃÓÚ´æ·ÅËù¼ÇÔØµÄÀà£©
+	 * å®šä¹‰ç±»é›†åˆï¼ˆç”¨äºå­˜æ”¾æ‰€è®°è½½çš„ç±»ï¼‰
 	 */
 	private static final Set<Class<?>> CLASS_SET;
 	static {
@@ -26,22 +26,22 @@ public final class ClassHelper {
 	}
 
 	/**
-	@Description: »ñÈ¡Ó¦ÓÃ°üÃûÏÂµÄËùÓĞÀà
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:17:50 
+	@Description: è·å–åº”ç”¨åŒ…åä¸‹çš„æ‰€æœ‰ç±»
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:17:50 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	public static Set<Class<?>> getClassSet() {
 		return CLASS_SET;
 	}
 
 	/**
-	@Description: »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞ×¢½âÊÇServiceµÄÀà
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:37:59 
+	@Description: è·å–åº”ç”¨åŒ…åä¸‹æ‰€æœ‰æ³¨è§£æ˜¯Serviceçš„ç±»
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:37:59 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	public static Set<Class<?>> getServiceClassSet() {
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
@@ -54,11 +54,11 @@ public final class ClassHelper {
 	}
 
 	/**
-	@Description: »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞ×¢½âÊÇControllerµÄÀà
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:38:19 
+	@Description: è·å–åº”ç”¨åŒ…åä¸‹æ‰€æœ‰æ³¨è§£æ˜¯Controllerçš„ç±»
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:38:19 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	public static Set<Class<?>> getControllerClassSet() {
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
@@ -71,11 +71,11 @@ public final class ClassHelper {
 	}
 
 	/**
-	@Description: »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞBeanÀà(°üÀ¨£ºService¡¢ControllerµÈ£©
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:38:44 
+	@Description: è·å–åº”ç”¨åŒ…åä¸‹æ‰€æœ‰Beanç±»(åŒ…æ‹¬ï¼šServiceã€Controllerç­‰ï¼‰
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:38:44 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	public static Set<Class<?>> getBeanClassSet() {
 		Set<Class<?>> beanClassSet = new HashSet<Class<?>>();
@@ -85,18 +85,18 @@ public final class ClassHelper {
 	}
 
 	/**
-	@Description: »ñÈ¡Ó¦ÓÃ°üÃûÏÂÄ³¸¸Àà£¨»ò½Ó¿Ú£©µÄËùÓĞ×ÓÀà£¨»òÊµÏÖÀà£©
+	@Description: è·å–åº”ç”¨åŒ…åä¸‹æŸçˆ¶ç±»ï¼ˆæˆ–æ¥å£ï¼‰çš„æ‰€æœ‰å­ç±»ï¼ˆæˆ–å®ç°ç±»ï¼‰
 	@param @param superClass
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç2:39:00 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ2:39:00 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	public static Set<Class<?>> getClassSetBySuper(Class<?> superClass) {
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
 		for (Class<?> cls : CLASS_SET) {
-			// ´ËClass¶ÔÏóËù±íÊ¾µÄÀà»ò½Ó¿ÚÊÇ·ñÏàÍ¬£¬Ç°ºóÔò¹ØÏµÊÇ¸¸Óë×Ó¹ØÏµ»ò½Ó¿ÚÓë±»ÊµÏÖ¹ØÏµ£¬µ«ÓÖ²»Í¬Ãû
-			// ¹ØÏµÊÇ ¸¸Ç×.isAssignableFrom(×Ó)
+			// æ­¤Classå¯¹è±¡æ‰€è¡¨ç¤ºçš„ç±»æˆ–æ¥å£æ˜¯å¦ç›¸åŒï¼Œå‰ååˆ™å…³ç³»æ˜¯çˆ¶ä¸å­å…³ç³»æˆ–æ¥å£ä¸è¢«å®ç°å…³ç³»ï¼Œä½†åˆä¸åŒå
+			// å…³ç³»æ˜¯ çˆ¶äº².isAssignableFrom(å­)
 			if (superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
 				classSet.add(cls);
 			}
@@ -105,12 +105,12 @@ public final class ClassHelper {
 	}
 
 	/**
-	@Description: »ñÈ¡Ó¦ÓÃ°üÃûÏÂ´øÓĞÄ³×¢½âµÄËùÓĞÀà±ÈÈç»ñÈ¡ËùÓĞ×¢½â£¨Annotation£©ÊÇControllerµÄÀà£¨¼´ËùÓĞµÄ¿ØÖÆÆ÷Àà£¬¾ÍÊÇÇĞÃæÀàÒª¹ÜÀíµÄÄ¿±êÀà£©
+	@Description: è·å–åº”ç”¨åŒ…åä¸‹å¸¦æœ‰æŸæ³¨è§£çš„æ‰€æœ‰ç±»æ¯”å¦‚è·å–æ‰€æœ‰æ³¨è§£ï¼ˆAnnotationï¼‰æ˜¯Controllerçš„ç±»ï¼ˆå³æ‰€æœ‰çš„æ§åˆ¶å™¨ç±»ï¼Œå°±æ˜¯åˆ‡é¢ç±»è¦ç®¡ç†çš„ç›®æ ‡ç±»ï¼‰
 	@param @param annotationClass
-	@param @return    Éè¶¨ÎÄ¼ş
-	@date ´´½¨Ê±¼ä£º2016-4-6 ÏÂÎç3:00:31 
+	@param @return    è®¾å®šæ–‡ä»¶
+	@date åˆ›å»ºæ—¶é—´ï¼š2016-4-6 ä¸‹åˆ3:00:31 
 	@version 1.0
-	@return Set<Class<?>>    ·µ»ØÀàĞÍ
+	@return Set<Class<?>>    è¿”å›ç±»å‹
 	 */
 	public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationClass) {
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
